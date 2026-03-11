@@ -7,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>İletişim | BDB</title>
-  <meta name="description" content="BDB ile ürün bilgisi, fiyat teklifi ve kurumsal tedarik talepleriniz için iletişime geçin." />
+  <meta name="description" content="BDB ile ürün bilgisi, fiyat teklifi ve düzenli tedarik talepleriniz için telefon, WhatsApp veya e-posta üzerinden iletişime geçin." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,7 @@
     :root{
       --bg:#edf3f8;
       --surface:#ffffff;
+      --surface-soft:#f7fafc;
       --text:#203548;
       --muted:#647789;
       --line:#d7e2eb;
@@ -26,7 +27,10 @@
       --shadow-soft:0 10px 24px rgba(16,42,66,.06);
       --max:1180px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:"Inter",Arial,sans-serif;
@@ -35,170 +39,560 @@
         radial-gradient(circle at top left, rgba(23,152,222,.10), transparent 28%),
         linear-gradient(180deg,#edf3f8 0%,#f7fafc 100%);
     }
+
     a{text-decoration:none;color:inherit}
+    input, textarea, button, select{font:inherit}
     .container{width:min(100% - 32px,var(--max));margin:0 auto}
+
     .header{
-      position:sticky;top:0;z-index:30;
+      position:sticky;
+      top:0;
+      z-index:30;
       padding:20px 0 12px;
       backdrop-filter:blur(12px);
       background:rgba(237,243,248,.72);
     }
+
     .header-box{
-      display:grid;grid-template-columns:220px 1fr 220px;align-items:center;gap:18px;
-      padding:16px 22px;border-radius:24px;background:rgba(255,255,255,.9);
-      border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow-soft);
+      display:grid;
+      grid-template-columns:220px 1fr 220px;
+      align-items:center;
+      gap:18px;
+      padding:16px 22px;
+      border-radius:24px;
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(255,255,255,.7);
+      box-shadow:var(--shadow-soft);
     }
+
     .logo-wrap{display:flex;align-items:center;min-height:68px}
     .logo-image{height:82px;width:auto;object-fit:contain}
-    .nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-    .nav a{padding:12px 16px;border-radius:999px;color:var(--muted);font-weight:700;font-size:.96rem;transition:.25s ease}
-    .nav a:hover,.nav a.active{background:rgba(23,152,222,.08);color:var(--blue-dark)}
-    .header-note{justify-self:end;color:var(--muted);font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      padding:12px 16px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:.96rem;
+      transition:.25s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      background:rgba(23,152,222,.08);
+      color:var(--blue-dark);
+    }
+
+    .header-note{
+      justify-self:end;
+      color:var(--muted);
+      font-size:.82rem;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
 
     .hero{padding:14px 0 20px}
+
     .hero-wrap{
-      display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:stretch;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      align-items:stretch;
     }
+
     .hero-main{
-      padding:44px;border-radius:30px;color:#fff;
+      padding:44px;
+      border-radius:30px;
+      color:#fff;
       background:
         radial-gradient(circle at top right, rgba(88,184,238,.22), transparent 24%),
         linear-gradient(135deg, rgba(16,42,66,.97), rgba(22,58,89,.94) 46%, rgba(26,86,128,.92) 100%);
       box-shadow:var(--shadow);
     }
+
     .hero-side{
-      padding:28px;border-radius:30px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft)
+      padding:28px;
+      border-radius:30px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
     }
+
     .kicker{
-      color:rgba(255,255,255,.82);font-size:.84rem;font-weight:800;
-      text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px;
+      color:rgba(255,255,255,.82);
+      font-size:.84rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      margin-bottom:14px;
     }
+
     h1{
       margin:0 0 16px;
       font-family:"Playfair Display",Georgia,serif;
-      font-size:clamp(2.8rem,5vw,4.8rem);
-      line-height:1;letter-spacing:-.04em;
+      font-size:clamp(2.6rem,5vw,4.8rem);
+      line-height:1;
+      letter-spacing:-.04em;
       max-width:10ch;
     }
+
     .hero-main p{
-      margin:0;max-width:62ch;color:rgba(255,255,255,.84);
-      line-height:1.9;font-size:1.05rem;
+      margin:0;
+      max-width:62ch;
+      color:rgba(255,255,255,.84);
+      line-height:1.9;
+      font-size:1.05rem;
     }
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
     .button{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-width:156px;padding:15px 20px;border-radius:14px;
-      font-size:.94rem;font-weight:800;transition:.2s ease;
-      border:1px solid rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.08);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:156px;
+      padding:15px 20px;
+      border-radius:14px;
+      font-size:.94rem;
+      font-weight:800;
+      transition:.2s ease;
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      background:rgba(255,255,255,.08);
     }
-    .button.primary{background:var(--blue);border-color:var(--blue)}
+
+    .button.primary{
+      background:var(--blue);
+      border-color:var(--blue);
+    }
+
     .button:hover{transform:translateY(-2px)}
 
     .side-title{
-      margin:0 0 16px;color:var(--blue-dark);font-size:1.1rem;font-weight:800
+      margin:0 0 16px;
+      color:var(--blue-dark);
+      font-size:1.1rem;
+      font-weight:800;
     }
+
     .quick-list{display:grid;gap:14px}
+
     .quick-item{
-      padding:16px 0;border-bottom:1px solid var(--line)
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
     }
-    .quick-item:last-child{border-bottom:none;padding-bottom:0}
-    .quick-item strong{display:block;margin-bottom:6px;font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .quick-item a,.quick-item span{display:block;color:var(--blue-dark);font-weight:800;line-height:1.6}
+
+    .quick-item:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .quick-item strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:.9rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .quick-item a,
+    .quick-item span{
+      display:block;
+      color:var(--blue-dark);
+      font-weight:800;
+      line-height:1.6;
+    }
 
     .section{padding:18px 0 34px}
+
     .contact-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
+
     .contact-card{
-      padding:26px;background:#fff;border:1px solid var(--line);
-      border-radius:24px;box-shadow:var(--shadow-soft)
+      padding:26px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
     }
-    .contact-card h2{margin:0 0 10px;font-size:1.14rem;color:var(--blue-dark)}
-    .contact-card p{margin:0 0 12px;color:var(--muted);line-height:1.8;font-size:.96rem}
-    .contact-card a{color:var(--blue-dark);font-weight:800}
+
+    .contact-card h2{
+      margin:0 0 10px;
+      font-size:1.14rem;
+      color:var(--blue-dark);
+    }
+
+    .contact-card p{
+      margin:0 0 12px;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:.96rem;
+    }
+
+    .contact-card a{
+      color:var(--blue-dark);
+      font-weight:800;
+    }
 
     .content-grid{
-      display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:start;
     }
-    .info-panel,.request-panel{
-      background:#fff;border:1px solid var(--line);border-radius:26px;
-      padding:30px;box-shadow:var(--shadow-soft)
+
+    .info-panel,
+    .request-panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:30px;
+      box-shadow:var(--shadow-soft);
     }
-    .section-kicker{color:var(--blue-dark);font-size:.84rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
+
+    .section-kicker{
+      color:var(--blue-dark);
+      font-size:.84rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:10px;
+    }
+
     .section-title{
       margin:0 0 12px;
       font-family:"Playfair Display",Georgia,serif;
       font-size:clamp(1.9rem,3vw,2.7rem);
-      line-height:1.08;letter-spacing:-.03em;
+      line-height:1.08;
+      letter-spacing:-.03em;
     }
-    .section-text{margin:0;color:var(--muted);line-height:1.85;font-size:1rem}
 
-    .steps{display:grid;gap:16px;margin-top:24px}
+    .section-text{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:1rem;
+    }
+
+    .steps{
+      display:grid;
+      gap:16px;
+      margin-top:24px;
+    }
+
     .step{
-      display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;
+      display:grid;
+      grid-template-columns:48px 1fr;
+      gap:14px;
+      align-items:start;
     }
-    .step-no{
-      width:48px;height:48px;border-radius:14px;background:var(--blue-dark);color:#fff;
-      display:flex;align-items:center;justify-content:center;font-weight:800
-    }
-    .step h3{margin:4px 0 8px;font-size:1.02rem}
-    .step p{margin:0;color:var(--muted);line-height:1.75;font-size:.95rem}
 
-    .request-panel ul{margin:18px 0 0;padding-left:18px;color:var(--muted);line-height:1.9}
+    .step-no{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:var(--blue-dark);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+    }
+
+    .step h3{
+      margin:4px 0 8px;
+      font-size:1.02rem;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:.95rem;
+    }
+
+    .request-panel ul{
+      margin:18px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.9;
+    }
+
     .request-panel li+li{margin-top:6px}
 
+    .form-section{
+      padding:6px 0 34px;
+    }
+
+    .form-wrap{
+      display:grid;
+      grid-template-columns:1fr 340px;
+      gap:22px;
+      align-items:start;
+    }
+
+    .form-card,
+    .form-note{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .quote-form{
+      display:grid;
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .field label{
+      font-size:.93rem;
+      font-weight:700;
+      color:var(--blue-dark);
+    }
+
+    .field input,
+    .field textarea,
+    .field select{
+      width:100%;
+      border:1px solid var(--line);
+      background:var(--surface-soft);
+      border-radius:16px;
+      padding:14px 16px;
+      color:var(--text);
+      outline:none;
+      transition:.2s ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus{
+      border-color:rgba(23,152,222,.45);
+      background:#fff;
+      box-shadow:0 0 0 4px rgba(23,152,222,.08);
+    }
+
+    .field textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .form-submit{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .submit-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:180px;
+      padding:15px 20px;
+      border-radius:14px;
+      border:none;
+      cursor:pointer;
+      background:var(--blue);
+      color:#fff;
+      font-weight:800;
+      transition:.2s ease;
+    }
+
+    .submit-btn:hover{transform:translateY(-2px)}
+
+    .submit-note{
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.7;
+      max-width:38ch;
+    }
+
+    .form-note h3{
+      margin:0 0 12px;
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:1.85rem;
+      line-height:1.08;
+    }
+
+    .form-note p{
+      margin:0 0 16px;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    .form-note ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.9;
+    }
+
+    .form-note li+li{margin-top:6px}
+
     .cta{padding:10px 0 30px}
+
     .cta-box{
-      display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
-      padding:34px;border-radius:28px;color:#fff;box-shadow:var(--shadow);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+      flex-wrap:wrap;
+      padding:34px;
+      border-radius:28px;
+      color:#fff;
+      box-shadow:var(--shadow);
       background:
         radial-gradient(circle at top right, rgba(88,184,238,.18), transparent 28%),
         linear-gradient(135deg,#143553,#1b4d73);
     }
+
     .cta-box h2{
-      margin:0 0 10px;font-family:"Playfair Display",Georgia,serif;
-      font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;
+      margin:0 0 10px;
+      font-family:"Playfair Display",Georgia,serif;
+      font-size:clamp(1.8rem,3vw,2.5rem);
+      line-height:1.1;
     }
-    .cta-box p{margin:0;color:rgba(255,255,255,.84);line-height:1.8;max-width:56ch}
+
+    .cta-box p{
+      margin:0;
+      color:rgba(255,255,255,.84);
+      line-height:1.8;
+      max-width:56ch;
+    }
 
     .footer{padding:0 0 30px}
+
     .footer-box{
-      background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow-soft)
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:26px;
+      box-shadow:var(--shadow-soft);
     }
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:22px}
-    .footer-brand h3{margin:0 0 12px;color:var(--blue-dark);font-size:1.08rem}
-    .footer-brand p,.footer-column p,.footer-column a{margin:0;color:var(--muted);line-height:1.8;font-size:.95rem}
-    .footer-column strong{display:block;margin-bottom:10px;font-size:.96rem}
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:22px;
+    }
+
+    .footer-brand h3{
+      margin:0 0 12px;
+      color:var(--blue-dark);
+      font-size:1.08rem;
+    }
+
+    .footer-brand p,
+    .footer-column p,
+    .footer-column a{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:.95rem;
+    }
+
+    .footer-column strong{
+      display:block;
+      margin-bottom:10px;
+      font-size:.96rem;
+    }
+
     .footer-links{display:grid;gap:8px}
+
     .footer-bottom{
-      margin-top:20px;padding-top:18px;border-top:1px solid var(--line);
-      color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      margin-top:20px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.9rem;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
     @media (max-width:1100px){
-      .hero-wrap,.contact-grid,.content-grid,.footer-grid{grid-template-columns:1fr}
+      .hero-wrap,
+      .contact-grid,
+      .content-grid,
+      .form-wrap,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
     }
+
     @media (max-width:980px){
-      .header-box{grid-template-columns:1fr;text-align:center}
-      .logo-wrap,.header-note{justify-self:center}
+      .header-box{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+      .logo-wrap,
+      .header-note{
+        justify-self:center;
+      }
     }
+
     @media (max-width:720px){
       .header{position:static}
-      .hero-main,.hero-side,.info-panel,.request-panel,.footer-box{padding:22px}
+      .hero-main,
+      .hero-side,
+      .info-panel,
+      .request-panel,
+      .form-card,
+      .form-note,
+      .footer-box{
+        padding:22px;
+      }
+      .form-row,
+      .step{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="container header-box">
-      <a href="/" class="logo-wrap"><img class="logo-image" src="/logo-bdb.png" alt="BDB logo"></a>
-      <nav class="nav">
+      <a href="/" class="logo-wrap" aria-label="BDB ana sayfa">
+        <img class="logo-image" src="/logo-bdb.png" alt="BDB logo">
+      </a>
+      <nav class="nav" aria-label="Ana menü">
         <a href="/">Ana Sayfa</a>
         <a href="/kurumsal/">Kurumsal</a>
         <a href="/urunler/">Ürünler</a>
         <a class="active" href="/iletisim/">İletişim</a>
       </nav>
-      <div class="header-note">bdbsource.com.tr</div>
+      <div class="header-note">İzmir merkezli tedarik</div>
     </div>
   </header>
 
@@ -207,10 +601,11 @@
       <div class="container hero-wrap">
         <div class="hero-main">
           <div class="kicker">İletişim</div>
-          <h1>Bilgi ve teklif talepleriniz için bize ulaşın.</h1>
+          <h1>Ürün ve teklif talepleriniz için bize ulaşın.</h1>
           <p>
-            Ürün grupları, fiyat teklifi ve kurumsal tedarik ihtiyaçlarınız için
-            bizimle telefon, WhatsApp veya e-posta üzerinden doğrudan iletişime geçebilirsiniz.
+            Belirli bir ürün, düzenli tedarik ihtiyacı veya fiyat teklifi talebiniz varsa
+            telefon, WhatsApp veya e-posta üzerinden bizimle doğrudan iletişime geçebilirsiniz.
+            İhtiyacınızı netleştirip size uygun şekilde dönüş yapıyoruz.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="tel:+905327889759">Hemen Ara</a>
@@ -234,8 +629,8 @@
               <a href="mailto:info@bdbsource.com.tr">info@bdbsource.com.tr</a>
             </div>
             <div class="quick-item">
-              <strong>Adres</strong>
-              <span>İzmir / Güzelbahçe</span>
+              <strong>Bölge</strong>
+              <span>İzmir ve yakın çevre</span>
             </div>
           </div>
         </aside>
@@ -246,17 +641,17 @@
       <div class="container contact-grid">
         <div class="contact-card">
           <h2>Telefon ile iletişim</h2>
-          <p>Ürün grupları ve teklif talepleri hakkında doğrudan görüşmek için bizi arayabilirsiniz.</p>
+          <p>Ürün grupları, fiyat teklifi ve düzenli tedarik ihtiyaçları için doğrudan görüşebilirsiniz.</p>
           <a href="tel:+905327889759">0532 788 97 59</a>
         </div>
         <div class="contact-card">
           <h2>WhatsApp desteği</h2>
-          <p>Hızlı iletişim kurmak ve talebinizi doğrudan iletmek için WhatsApp üzerinden bize ulaşabilirsiniz.</p>
+          <p>Hızlı iletişim kurmak, ürün fotoğrafı göndermek veya talebinizi yazılı iletmek için uygundur.</p>
           <a href="https://wa.me/905379956261" target="_blank" rel="noopener">WhatsApp ile Ulaşın</a>
         </div>
         <div class="contact-card">
           <h2>E-posta ile talep</h2>
-          <p>Ürün bilgisi, teklif talebi ve genel kurumsal iletişim konuları için e-posta gönderebilirsiniz.</p>
+          <p>Ürün bilgisi, teklif talebi ve genel iletişim konuları için e-posta gönderebilirsiniz.</p>
           <a href="mailto:info@bdbsource.com.tr">info@bdbsource.com.tr</a>
         </div>
       </div>
@@ -266,49 +661,140 @@
       <div class="container content-grid">
         <div class="info-panel">
           <div class="section-kicker">İletişim Süreci</div>
-          <h2 class="section-title">Talebinizi kısa sürede doğru şekilde değerlendiriyoruz</h2>
+          <h2 class="section-title">Talebinizi kısa sürede netleştirmeye çalışıyoruz</h2>
           <p class="section-text">
-            İletişim sürecinde önceliğimiz; ihtiyacınızı net anlamak, doğru yönlendirme yapmak
-            ve teklif sürecini anlaşılır biçimde ilerletmektir.
+            Önceliğimiz; ihtiyacınızı doğru anlamak, uygun ürün veya alternatifleri değerlendirmek
+            ve teklif sürecini anlaşılır şekilde ilerletmektir.
           </p>
 
           <div class="steps">
             <div class="step">
               <div class="step-no">01</div>
               <div>
-                <h3>Talebin iletilmesi</h3>
-                <p>Telefon, WhatsApp veya e-posta üzerinden ihtiyacınızı bizimle paylaşabilirsiniz.</p>
+                <h3>Talebinizi alıyoruz</h3>
+                <p>Telefon, WhatsApp, e-posta veya form üzerinden ürün ihtiyacınızı bizimle paylaşırsınız.</p>
               </div>
             </div>
             <div class="step">
               <div class="step-no">02</div>
               <div>
-                <h3>İhtiyacın değerlendirilmesi</h3>
-                <p>Talebiniz ürün grupları ve kullanım alanına göre değerlendirilir.</p>
+                <h3>İçeriği değerlendiriyoruz</h3>
+                <p>Ürün tipi, kullanım alanı, miktar ve düzenli tedarik durumu gibi detaylar netleştirilir.</p>
               </div>
             </div>
             <div class="step">
               <div class="step-no">03</div>
               <div>
-                <h3>Bilgilendirme ve teklif</h3>
-                <p>Size uygun ürün ve fiyatlandırma süreci açık ve düzenli şekilde paylaşılır.</p>
+                <h3>Geri dönüş sağlıyoruz</h3>
+                <p>Uygun ürün ve teklif süreci mümkün olduğunca açık ve pratik şekilde paylaşılır.</p>
               </div>
             </div>
           </div>
         </div>
 
         <aside class="request-panel">
-          <div class="section-kicker">Talep İçeriği</div>
-          <h2 class="section-title">Bize iletebileceğiniz başlıca konular</h2>
+          <div class="section-kicker">Talebinizde Belirtebilecekleriniz</div>
+          <h2 class="section-title">Bize hangi bilgileri gönderebilirsiniz?</h2>
           <p class="section-text">
-            Daha hızlı geri dönüş alabilmeniz için talebinizde ihtiyaç duyduğunuz ürün grubu
-            veya talep başlığını açık şekilde belirtmeniz yeterlidir.
+            Daha hızlı ve daha doğru geri dönüş alabilmeniz için talebinizde aşağıdaki detaylardan
+            mümkün olanları belirtmeniz yeterlidir.
           </p>
           <ul>
-            <li>Ürün grubu hakkında genel bilgi talebi</li>
-            <li>Fiyat teklifi talebi</li>
-            <li>Kurumsal tedarik süreci hakkında bilgi</li>
-            <li>İşletmeye uygun ürün yönlendirmesi</li>
+            <li>İstenen ürün adı veya ürün grubu</li>
+            <li>Kullanım alanı veya sektör bilgisi</li>
+            <li>Tahmini miktar veya düzenli sipariş durumu</li>
+            <li>Tercih edilen iletişim yöntemi</li>
+            <li>İzmir içi veya yakın bölge teslimat durumu</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="container form-wrap">
+        <div class="form-card">
+          <div class="section-kicker">Teklif Formu</div>
+          <h2 class="section-title">Talebinizi form üzerinden iletin</h2>
+          <p class="section-text">
+            Aşağıdaki alanları doldurarak ürün veya teklif talebinizi iletebilirsiniz.
+            Bu formun aktif çalışması için sonradan bir form servisi veya backend bağlantısı eklenmelidir.
+          </p>
+
+          <form class="quote-form" action="#" method="post">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Ad Soyad</label>
+                <input id="name" name="name" type="text" placeholder="Adınız soyadınız">
+              </div>
+              <div class="field">
+                <label for="company">Firma Adı</label>
+                <input id="company" name="company" type="text" placeholder="Firma adınız">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" placeholder="05xx xxx xx xx">
+              </div>
+              <div class="field">
+                <label for="email">E-posta</label>
+                <input id="email" name="email" type="email" placeholder="ornek@firma.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="product">Ürün / Ürün Grubu</label>
+                <input id="product" name="product" type="text" placeholder="Örn: nitril eldiven, koli bandı">
+              </div>
+              <div class="field">
+                <label for="city">Bölge / Teslimat Yeri</label>
+                <input id="city" name="city" type="text" placeholder="Örn: İzmir / Torbalı">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="quantity">Tahmini Miktar</label>
+                <input id="quantity" name="quantity" type="text" placeholder="Örn: aylık 20 koli">
+              </div>
+              <div class="field">
+                <label for="frequency">Talep Tipi</label>
+                <select id="frequency" name="frequency">
+                  <option value="">Seçiniz</option>
+                  <option>Tek seferlik talep</option>
+                  <option>Düzenli tedarik talebi</option>
+                  <option>Fiyat araştırması</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Talep Detayı</label>
+              <textarea id="message" name="message" placeholder="İhtiyacınız olan ürün, kullanım alanı veya ek notlarınızı yazabilirsiniz."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button class="submit-btn" type="submit">Talebi Gönder</button>
+              <div class="submit-note">
+                Form entegrasyonu eklenene kadar en hızlı yöntem WhatsApp veya telefon iletişimidir.
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <aside class="form-note">
+          <h3>Form yerine hızlı iletişim de mümkün</h3>
+          <p>
+            Özellikle acil veya net ürün taleplerinde WhatsApp ve telefon daha hızlı sonuç verebilir.
+            Ürün adı ve miktar bilginiz hazırsa bize doğrudan da ulaşabilirsiniz.
+          </p>
+          <ul>
+            <li>Belirli ürün adı varsa doğrudan paylaşabilirsiniz</li>
+            <li>Fotoğraf veya örnek ürün bilgisi WhatsApp üzerinden gönderilebilir</li>
+            <li>Düzenli tedarik talepleri ayrıca belirtilebilir</li>
+            <li>İzmir ve yakın çevre talepleri öncelikli değerlendirilebilir</li>
           </ul>
         </aside>
       </div>
@@ -319,7 +805,10 @@
         <div class="cta-box">
           <div>
             <h2>Ürün bilgisi ve teklif talepleriniz için şimdi iletişime geçin</h2>
-            <p>İhtiyacınıza uygun ürün grupları ve fiyat teklifleri için bize telefonla ulaşabilir veya WhatsApp üzerinden hızlıca yazabilirsiniz.</p>
+            <p>
+              Aradığınız ürünü veya ihtiyacınız olan ürün grubunu bize iletin;
+              uygun teklif ve tedarik sürecini birlikte netleştirelim.
+            </p>
           </div>
           <div class="hero-actions">
             <a class="button primary" href="tel:+905327889759">Hemen Ara</a>
@@ -335,9 +824,15 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>BDB</h3>
-          <p>Ambalaj, hijyen ve operasyonel sarf ürün gruplarında işletmelere yönelik kurumsal tedarik çözümleri sunar.</p>
-          <p style="margin-top:12px;">İzmir / Güzelbahçe merkezli iletişim ve destek yapısı.</p>
+          <p>
+            BDB, BDB Ticaret tarafından kullanılan marka adıdır. İzmir merkezli olarak
+            koruyucu ürünler, ambalaj malzemeleri ve operasyonel sarf ürünlerinde işletmelere tedarik desteği sunar.
+          </p>
+          <p style="margin-top:12px;">
+            Uygun fiyat, düzenli tedarik ve ulaşılabilir iletişim odaklı çalışıyoruz.
+          </p>
         </div>
+
         <div class="footer-column">
           <strong>Sayfalar</strong>
           <div class="footer-links">
@@ -347,19 +842,21 @@
             <a href="/iletisim/">İletişim</a>
           </div>
         </div>
+
         <div class="footer-column">
           <strong>İletişim</strong>
           <div class="footer-links">
             <a href="mailto:info@bdbsource.com.tr">info@bdbsource.com.tr</a>
             <a href="tel:+905327889759">Telefon: 0532 788 97 59</a>
             <a href="https://wa.me/905379956261" target="_blank" rel="noopener">WhatsApp: 0537 995 62 61</a>
-            <p>Adres: İzmir / Güzelbahçe</p>
+            <p>Bölge: İzmir ve yakın çevre</p>
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© 2026 bdbsource.com.tr</span>
-        <span>Kurumsal Tedarik Çözümleri</span>
+        <span>İletişim ve Teklif Talepleri</span>
       </div>
     </div>
   </footer>
