@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BDB | Tedarik Desteği</title>
-  <meta name="description" content="BDB, işletmeler için düzenli ve güvenilir tedarik desteği sunar." />
+  <meta name="description" content="BDB, işletmeler için güvenilir ve düzenli tedarik desteği sunar." />
 
   <link rel="icon" type="image/png" href="/BDBLOGO.png">
   <link rel="apple-touch-icon" href="/BDBLOGO.png">
@@ -24,12 +24,13 @@
       --line:#dbe3ee;
       --line-soft:#cdd7e5;
       --navy:#2d436c;
-      --navy-soft:#3b5788;
+      --navy-soft:#395683;
       --green:#9fbe77;
       --green-deep:#86a75f;
       --shadow:0 18px 40px rgba(27,44,74,.08);
       --shadow-soft:0 10px 25px rgba(27,44,74,.05);
       --max:1180px;
+      --radius:28px;
     }
 
     *{box-sizing:border-box}
@@ -58,9 +59,9 @@
     }
 
     .header-inner{
-      min-height:100px;
+      min-height:104px;
       display:grid;
-      grid-template-columns:260px 1fr 180px;
+      grid-template-columns:280px 1fr 190px;
       gap:20px;
       align-items:center;
     }
@@ -68,11 +69,11 @@
     .logo{
       display:flex;
       align-items:center;
-      min-height:76px;
+      min-height:78px;
     }
 
     .logo img{
-      height:98px;
+      height:104px;
       width:auto;
       object-fit:contain;
     }
@@ -80,13 +81,13 @@
     .nav{
       display:flex;
       justify-content:center;
-      gap:34px;
+      gap:38px;
       flex-wrap:wrap;
     }
 
     .nav a{
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:1.12rem;
+      font-size:1.18rem;
       font-weight:800;
       letter-spacing:.01em;
       color:var(--muted);
@@ -104,7 +105,7 @@
       content:"";
       position:absolute;
       left:0;
-      bottom:-10px;
+      bottom:-12px;
       width:100%;
       height:3px;
       border-radius:999px;
@@ -116,23 +117,21 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:50px;
-      padding:0 20px;
+      min-height:52px;
+      padding:0 22px;
       border-radius:14px;
       background:linear-gradient(135deg,var(--navy-soft),var(--navy));
       color:#fff;
-      font-size:.95rem;
+      font-size:.96rem;
       font-weight:800;
       box-shadow:var(--shadow-soft);
       transition:.2s ease;
     }
 
-    .top-btn:hover{
-      transform:translateY(-1px);
-    }
+    .top-btn:hover{transform:translateY(-1px)}
 
     .hero{
-      padding:36px 0 22px;
+      padding:36px 0 26px;
     }
 
     .hero-box{
@@ -147,17 +146,17 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      min-height:600px;
+      grid-template-columns:1.08fr .92fr;
+      min-height:620px;
     }
 
     .hero-left{
-      padding:70px 58px 54px;
+      padding:72px 58px 54px;
       border-right:1px solid var(--line);
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      gap:28px;
+      gap:30px;
     }
 
     .eyebrow{
@@ -173,7 +172,7 @@
       margin:0;
       max-width:10ch;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:clamp(3.1rem,5.6vw,5.6rem);
+      font-size:clamp(3.2rem,5.8vw,5.8rem);
       line-height:.94;
       letter-spacing:-.04em;
       color:var(--text-strong);
@@ -181,7 +180,7 @@
 
     .hero-sub{
       margin:20px 0 0;
-      max-width:34ch;
+      max-width:35ch;
       color:var(--muted);
       font-size:1.05rem;
       line-height:1.85;
@@ -191,7 +190,7 @@
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-top:30px;
+      margin-top:32px;
     }
 
     .btn{
@@ -202,14 +201,12 @@
       min-height:56px;
       padding:0 20px;
       border-radius:14px;
-      font-size:.95rem;
+      font-size:.96rem;
       font-weight:800;
       transition:.2s ease;
     }
 
-    .btn:hover{
-      transform:translateY(-1px);
-    }
+    .btn:hover{transform:translateY(-1px)}
 
     .btn-primary{
       background:linear-gradient(135deg,var(--navy-soft),var(--navy));
@@ -232,9 +229,9 @@
     }
 
     .point{
-      padding:18px;
+      padding:20px 18px;
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:20px;
       background:#fff;
     }
 
@@ -254,8 +251,43 @@
 
     .hero-right{
       display:grid;
-      grid-template-rows:1fr 1fr 1fr;
+      grid-template-rows:1.1fr 1fr 1fr 1fr;
       background:var(--bg-soft);
+    }
+
+    .hero-panel{
+      padding:34px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(248,251,255,.96));
+    }
+
+    .hero-panel-badge{
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:0 14px;
+      border-radius:999px;
+      background:rgba(159,190,119,.16);
+      color:var(--green-deep);
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .hero-panel h2{
+      margin:18px 0 12px;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:2rem;
+      line-height:1.04;
+      letter-spacing:-.03em;
+      color:var(--text-strong);
+    }
+
+    .hero-panel p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
     }
 
     .link-block{
@@ -263,7 +295,7 @@
       align-items:flex-end;
       justify-content:space-between;
       gap:20px;
-      padding:34px;
+      padding:30px 34px;
       border-bottom:1px solid var(--line);
       transition:.2s ease;
       background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(248,251,255,.95));
@@ -292,7 +324,7 @@
     .link-title{
       margin:0;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:1.7rem;
+      font-size:1.65rem;
       line-height:1.05;
       letter-spacing:-.03em;
       color:var(--text-strong);
@@ -313,7 +345,7 @@
     }
 
     .section{
-      padding:24px 0 48px;
+      padding:10px 0 52px;
     }
 
     .trust-box{
@@ -345,6 +377,51 @@
       font-size:.95rem;
     }
 
+    .cta{
+      padding:0 0 48px;
+    }
+
+    .cta-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      padding:34px 30px;
+      border-radius:28px;
+      background:linear-gradient(135deg,var(--navy) 0%, #1f3153 100%);
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h2{
+      margin:0 0 10px;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:2rem;
+      line-height:1.05;
+      letter-spacing:-.03em;
+      color:#fff;
+    }
+
+    .cta-box p{
+      margin:0;
+      max-width:620px;
+      color:rgba(255,255,255,.78);
+      line-height:1.8;
+    }
+
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 22px;
+      border-radius:14px;
+      background:var(--green);
+      color:#173050;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
     .footer{
       padding:20px 0 34px;
     }
@@ -360,7 +437,7 @@
       font-size:.94rem;
     }
 
-    @media (max-width:1020px){
+    @media (max-width:1040px){
       .hero-grid{
         grid-template-columns:1fr;
       }
@@ -371,7 +448,7 @@
       }
     }
 
-    @media (max-width:860px){
+    @media (max-width:880px){
       .header-inner{
         grid-template-columns:1fr;
         justify-items:center;
@@ -388,17 +465,18 @@
       }
 
       .logo img{
-        height:86px;
+        height:88px;
       }
 
       .nav a{
-        font-size:1rem;
+        font-size:1.05rem;
       }
     }
 
     @media (max-width:720px){
       .header{position:static}
       .hero-left{padding:38px 22px}
+      .hero-panel,
       .link-block{padding:24px 22px}
       h1{max-width:11ch}
     }
@@ -458,6 +536,14 @@
             </div>
 
             <div class="hero-right">
+              <div class="hero-panel">
+                <span class="hero-panel-badge">Kurumsal Çözüm</span>
+                <h2>İŞLETMELER İÇİN PROFESYONEL TEDARİK YÖNETİMİ</h2>
+                <p>
+                  Sade yapı, güçlü görünüm ve doğrudan iletişim odaklı kurumsal sunum.
+                </p>
+              </div>
+
               <a href="/urunler/" class="link-block">
                 <div>
                   <span class="link-label">01</span>
@@ -491,17 +577,29 @@
       <div class="container">
         <div class="trust-box">
           <div class="trust-card">
-            <h3>NET VE SADE SUNUM</h3>
-            <p>Ziyaretçi ilk bakışta firmanın ne yaptığını doğrudan görür.</p>
+            <h3>NET SUNUM</h3>
+            <p>Ziyaretçi ilk bakışta firmanın ne sunduğunu doğrudan görür.</p>
           </div>
           <div class="trust-card">
             <h3>KURUMSAL GÖRÜNÜM</h3>
-            <p>Beyaz zemin, güçlü tipografi ve dengeli renk yapısı güven hissini artırır.</p>
+            <p>Beyaz zemin, güçlü tipografi ve dengeli renk yapısı güven hissini destekler.</p>
           </div>
           <div class="trust-card">
             <h3>DOĞRUDAN İLETİŞİM</h3>
             <p>Gereksiz kalabalık olmadan teklif ve iletişim odaklı akış sunulur.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>TEDARİK SÜRECİNİZ İÇİN İLETİŞİME GEÇİN</h2>
+            <p>İhtiyacınıza uygun çözüm ve teklif süreci için bizimle iletişime geçin.</p>
+          </div>
+          <a href="/iletisim/" class="cta-btn">Teklif Talep Et</a>
         </div>
       </div>
     </section>
