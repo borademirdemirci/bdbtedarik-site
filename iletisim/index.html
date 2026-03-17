@@ -3,62 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İletişim | BDB</title>
-  <meta name="description" content="BDB iletişim ve teklif talepleri" />
+  <title>BDB | İletişim</title>
+  <meta name="description" content="BDB ile teklif, ürün talebi ve tedarik süreçleri için iletişime geçin." />
 
-  <link rel="icon" type="image/x-icon" href="/favicon-logo-only.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-logo-only.png">
-  <link rel="apple-touch-icon" href="/favicon-logo-only.png">
+  <link rel="icon" type="image/png" href="/BDBLOGO.png">
+  <link rel="apple-touch-icon" href="/BDBLOGO.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0f0f10;
-      --bg-soft:#151516;
-      --panel:#1b1b1d;
-      --panel-2:#211d1a;
-      --text:#f3f1ee;
-      --muted:#aaa39c;
-      --line:#2b2622;
-      --line-soft:#332b25;
-      --copper:#b77945;
-      --copper-soft:#d3a06f;
-      --max:1200px;
+      --bg:#ffffff;
+      --bg-soft:#f6f8fc;
+      --panel:#ffffff;
+      --text:#233a63;
+      --text-strong:#162947;
+      --muted:#6a7890;
+      --line:#dbe3ee;
+      --line-soft:#cdd7e5;
+      --navy:#2d436c;
+      --navy-soft:#395683;
+      --green:#9fbe77;
+      --green-deep:#86a75f;
+      --shadow:0 18px 40px rgba(27,44,74,.08);
+      --shadow-soft:0 10px 25px rgba(27,44,74,.05);
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:"Inter", Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(183,121,69,.10), transparent 18%),
-        radial-gradient(circle at left top, rgba(183,121,69,.06), transparent 22%),
-        linear-gradient(180deg,#0f0f10 0%, #141415 100%);
+        radial-gradient(circle at top right, rgba(159,190,119,.10), transparent 18%),
+        radial-gradient(circle at left top, rgba(45,67,108,.06), transparent 20%),
+        linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
     }
 
     a{text-decoration:none;color:inherit}
-    input, textarea, button{font:inherit}
     img{display:block;max-width:100%}
+    button,input,textarea{font:inherit}
     .container{width:min(100% - 32px, var(--max));margin:0 auto}
 
     .header{
       position:sticky;
       top:0;
-      z-index:20;
-      background:rgba(15,15,16,.84);
+      z-index:50;
+      background:rgba(255,255,255,.92);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(183,121,69,.12);
+      border-bottom:1px solid rgba(45,67,108,.10);
     }
 
     .header-inner{
-      min-height:84px;
+      min-height:124px;
       display:grid;
-      grid-template-columns:220px 1fr 170px;
+      grid-template-columns:360px 1fr 190px;
       gap:20px;
       align-items:center;
     }
@@ -66,11 +70,11 @@
     .logo{
       display:flex;
       align-items:center;
-      min-height:60px;
+      min-height:96px;
     }
 
     .logo img{
-      height:70px;
+      height:146px;
       width:auto;
       object-fit:contain;
     }
@@ -78,20 +82,36 @@
     .nav{
       display:flex;
       justify-content:center;
-      gap:26px;
+      gap:38px;
       flex-wrap:wrap;
     }
 
     .nav a{
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:1.18rem;
+      font-weight:800;
+      letter-spacing:.03em;
+      text-transform:uppercase;
       color:var(--muted);
-      font-size:.95rem;
-      font-weight:600;
+      position:relative;
       transition:.2s ease;
     }
 
     .nav a:hover,
     .nav a.active{
-      color:var(--text);
+      color:var(--navy);
+    }
+
+    .nav a.active::after,
+    .nav a:hover::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-12px;
+      width:100%;
+      height:3px;
+      border-radius:999px;
+      background:var(--green);
     }
 
     .top-btn{
@@ -99,306 +119,257 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:46px;
-      padding:0 18px;
-      border-radius:12px;
-      background:linear-gradient(135deg,var(--copper-soft),var(--copper));
-      color:#111;
-      font-size:.92rem;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+      color:#fff;
+      font-size:.96rem;
       font-weight:800;
+      text-transform:uppercase;
+      box-shadow:var(--shadow-soft);
+      transition:.2s ease;
     }
 
-    .hero{
-      padding:28px 0 18px;
+    .top-btn:hover{
+      transform:translateY(-1px);
     }
 
-    .hero-box{
+    .page{
+      padding:38px 0 46px;
+    }
+
+    .page-box{
       border:1px solid var(--line);
       border-radius:34px;
       overflow:hidden;
       background:
-        linear-gradient(135deg, rgba(183,121,69,.08), transparent 28%),
-        linear-gradient(180deg,#171718 0%, #111112 100%);
+        linear-gradient(135deg, rgba(45,67,108,.04), transparent 32%),
+        linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
+      box-shadow:var(--shadow);
     }
 
-    .hero-grid{
+    .page-grid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      min-height:520px;
+      grid-template-columns:1.02fr .98fr;
+      min-height:680px;
     }
 
-    .hero-left{
-      padding:56px;
+    .page-left{
+      padding:72px 58px 54px;
       border-right:1px solid var(--line);
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      gap:28px;
+      gap:30px;
     }
 
     .eyebrow{
-      color:var(--copper-soft);
-      font-size:.82rem;
+      color:var(--green-deep);
+      font-size:.84rem;
       font-weight:800;
-      letter-spacing:.14em;
+      letter-spacing:.18em;
       text-transform:uppercase;
       margin-bottom:18px;
     }
 
     h1{
       margin:0;
-      max-width:8ch;
-      font-size:clamp(3rem,6vw,5.6rem);
-      line-height:.9;
-      letter-spacing:-.08em;
+      max-width:10ch;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:clamp(2.5rem,4.8vw,4.5rem);
+      line-height:.96;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+      color:var(--text-strong);
     }
 
-    .hero-sub{
+    .page-sub{
       margin:18px 0 0;
-      max-width:26ch;
+      max-width:38ch;
       color:var(--muted);
-      font-size:1rem;
-      line-height:1.8;
+      font-size:1.05rem;
+      line-height:1.85;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:28px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:160px;
-      min-height:52px;
-      padding:0 20px;
-      border-radius:14px;
-      font-size:.94rem;
-      font-weight:800;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--copper-soft),var(--copper));
-      color:#111;
-    }
-
-    .btn-secondary{
-      border:1px solid var(--line-soft);
-      color:var(--text);
-      background:transparent;
-    }
-
-    .hero-bottom{
-      display:flex;
-      gap:28px;
-      flex-wrap:wrap;
-      padding-top:22px;
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:auto;
+      padding-top:24px;
       border-top:1px solid var(--line);
     }
 
-    .hero-bottom div{
+    .info-card{
+      padding:20px 18px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:#fff;
+    }
+
+    .info-card strong{
+      display:block;
+      margin-bottom:8px;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:.95rem;
+      color:var(--text-strong);
+      text-transform:uppercase;
+    }
+
+    .info-card span{
       color:var(--muted);
       font-size:.94rem;
       line-height:1.7;
     }
 
-    .hero-bottom strong{
-      display:block;
-      margin-bottom:6px;
-      color:var(--text);
-      font-size:.94rem;
-    }
-
-    .hero-right{
-      display:grid;
-      grid-template-rows:1fr 1fr 1fr;
-    }
-
-    .contact-block{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:18px;
-      padding:32px;
-      border-bottom:1px solid var(--line);
-      transition:.2s ease;
-      background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,0));
-    }
-
-    .contact-block:last-child{
-      border-bottom:none;
-    }
-
-    .contact-block:hover{
-      background:
-        linear-gradient(90deg, rgba(183,121,69,.10), transparent 45%),
-        linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0));
-    }
-
-    .contact-label{
-      display:block;
-      margin-bottom:10px;
-      color:var(--copper-soft);
-      font-size:.8rem;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .contact-value{
-      margin:0;
-      font-size:1.45rem;
-      line-height:1.15;
-      letter-spacing:-.03em;
-      word-break:break-word;
-    }
-
-    .contact-arrow{
-      flex:0 0 auto;
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      border:1px solid var(--line-soft);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--copper-soft);
-      font-size:1.1rem;
-    }
-
-    .section{
-      padding:18px 0 30px;
+    .page-right{
+      padding:38px;
+      background:var(--bg-soft);
     }
 
     .form-box{
+      height:100%;
+      padding:30px;
       border:1px solid var(--line);
-      border-radius:30px;
-      padding:34px;
-      background:linear-gradient(180deg,#171718 0%, #111112 100%);
+      border-radius:28px;
+      background:#fff;
+      box-shadow:var(--shadow-soft);
     }
 
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
+    .form-head{
       margin-bottom:24px;
-      padding-bottom:18px;
-      border-bottom:1px solid var(--line);
     }
 
-    .section-title{
+    .form-head h2{
+      margin:0 0 10px;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:1.8rem;
+      line-height:1.05;
+      letter-spacing:-.03em;
+      text-transform:uppercase;
+      color:var(--text-strong);
+    }
+
+    .form-head p{
       margin:0;
-      font-size:1.25rem;
-      font-weight:800;
-      color:var(--text);
-    }
-
-    .section-note{
       color:var(--muted);
-      font-size:.94rem;
+      line-height:1.8;
     }
 
-    .quote-form{
-      display:grid;
-      gap:16px;
-    }
-
-    .form-row{
+    .form-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:16px;
     }
 
     .field{
-      display:grid;
+      display:flex;
+      flex-direction:column;
       gap:8px;
     }
 
-    .field label{
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:700;
+    .field.full{
+      grid-column:1 / -1;
     }
 
-    .field input,
-    .field textarea{
+    label{
+      font-size:.9rem;
+      font-weight:700;
+      color:var(--text-strong);
+    }
+
+    input,
+    textarea{
       width:100%;
       border:1px solid var(--line-soft);
-      background:rgba(255,255,255,.02);
-      border-radius:16px;
-      padding:14px 16px;
+      border-radius:14px;
+      background:#fff;
       color:var(--text);
+      padding:15px 16px;
       outline:none;
       transition:.2s ease;
     }
 
-    .field input:focus,
-    .field textarea:focus{
-      border-color:rgba(211,160,111,.55);
-      box-shadow:0 0 0 4px rgba(183,121,69,.10);
+    input::placeholder,
+    textarea::placeholder{
+      color:#93a0b5;
     }
 
-    .field textarea{
-      min-height:130px;
+    input:focus,
+    textarea:focus{
+      border-color:var(--green);
+      box-shadow:0 0 0 4px rgba(159,190,119,.14);
+    }
+
+    textarea{
+      min-height:150px;
       resize:vertical;
     }
 
-    .form-submit{
+    .submit-row{
+      margin-top:20px;
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
       align-items:center;
-      margin-top:4px;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .submit-note{
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.7;
     }
 
     .submit-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-width:180px;
-      min-height:52px;
-      padding:0 20px;
+      min-height:54px;
+      padding:0 24px;
       border:none;
       border-radius:14px;
-      cursor:pointer;
-      background:linear-gradient(135deg,var(--copper-soft),var(--copper));
-      color:#111;
+      background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+      color:#fff;
+      font-size:.96rem;
       font-weight:800;
+      text-transform:uppercase;
+      cursor:pointer;
+      box-shadow:var(--shadow-soft);
+      transition:.2s ease;
     }
 
-    .submit-note{
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .honeypot-wrap{
-      position:absolute;
-      left:-9999px;
-      opacity:0;
-      pointer-events:none;
+    .submit-btn:hover{
+      transform:translateY(-1px);
     }
 
     .footer{
-      padding:24px 0 30px;
+      padding:20px 0 34px;
     }
 
     .footer-inner{
       display:flex;
       justify-content:space-between;
-      gap:12px;
+      gap:16px;
       flex-wrap:wrap;
-      padding-top:18px;
+      padding-top:20px;
       border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:.92rem;
+      font-size:.94rem;
     }
 
-    @media (max-width:980px){
+    @media (max-width:1040px){
+      .page-grid{
+        grid-template-columns:1fr;
+      }
+
+      .page-left{
+        border-right:none;
+        border-bottom:1px solid var(--line);
+      }
+    }
+
+    @media (max-width:880px){
       .header-inner{
         grid-template-columns:1fr;
         justify-items:center;
@@ -409,24 +380,32 @@
         justify-self:center;
       }
 
-      .hero-grid{
+      .info-grid,
+      .form-grid{
         grid-template-columns:1fr;
       }
 
-      .hero-left{
-        border-right:none;
-        border-bottom:1px solid var(--line);
+      .logo img{
+        height:108px;
+      }
+
+      .nav a{
+        font-size:1.05rem;
       }
     }
 
     @media (max-width:720px){
       .header{position:static}
-      .hero-left{padding:36px 22px}
-      .contact-block{padding:24px 22px}
+      .page-left{padding:38px 22px}
+      .page-right{padding:22px}
       .form-box{padding:22px}
-      .form-row{grid-template-columns:1fr}
-      h1{max-width:10ch}
-      .hero-bottom{flex-direction:column;gap:16px}
+      h1{
+        max-width:10ch;
+        font-size:2.4rem;
+      }
+      .logo img{
+        height:96px;
+      }
     }
   </style>
 </head>
@@ -434,137 +413,100 @@
   <header class="header">
     <div class="container header-inner">
       <a href="/" class="logo" aria-label="BDB ana sayfa">
-        <img src="/logo-bdb.png" alt="BDB logo">
+        <img src="/BDBLOGO.png" alt="BDB logo">
       </a>
 
       <nav class="nav" aria-label="Ana menü">
-        <a href="/">Ana Sayfa</a>
-        <a href="/urunler/">Ürünler</a>
-        <a href="/hakkimizda/">Hakkımızda</a>
-        <a href="/iletisim/" class="active">İletişim</a>
+        <a href="/">ANA SAYFA</a>
+        <a href="/urunler/">ÜRÜNLER</a>
+        <a href="/hakkimizda/">HAKKIMIZDA</a>
+        <a href="/iletisim/" class="active">İLETİŞİM</a>
       </nav>
 
-      <a href="/iletisim/" class="top-btn">Teklif Al</a>
+      <a href="/iletisim/" class="top-btn">TEKLİF AL</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="page">
       <div class="container">
-        <div class="hero-box">
-          <div class="hero-grid">
-            <div class="hero-left">
+        <div class="page-box">
+          <div class="page-grid">
+            <div class="page-left">
               <div>
-                <div class="eyebrow">İletişim</div>
-                <h1>İletişim.</h1>
-                <p class="hero-sub">Telefon, WhatsApp, e-posta.</p>
-
-                <div class="hero-actions">
-                  <a href="tel:+905327889759" class="btn btn-primary">Hemen Ara</a>
-                  <a href="https://wa.me/905379956261" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp</a>
-                </div>
+                <div class="eyebrow">BDB TEDARİK</div>
+                <h1>İLETİŞİM</h1>
+                <p class="page-sub">
+                  Teklif, ürün talebi ve tedarik süreçleriyle ilgili konular için bizimle iletişime geçebilirsiniz.
+                </p>
               </div>
 
-              <div class="hero-bottom">
-                <div>
-                  <strong>Telefon</strong>
-                  0532 788 97 59
+              <div class="info-grid">
+                <div class="info-card">
+                  <strong>TEKLİF TALEBİ</strong>
+                  <span>İhtiyacınıza uygun ürün ve süreç değerlendirmesi için formu doldurabilirsiniz.</span>
                 </div>
-                <div>
-                  <strong>WhatsApp</strong>
-                  0537 995 62 61
+                <div class="info-card">
+                  <strong>ÜRÜN TALEBİ</strong>
+                  <span>Talep ettiğiniz ürünlerle ilgili detayları mesaj alanında iletebilirsiniz.</span>
                 </div>
-                <div>
-                  <strong>E-posta</strong>
-                  info@bdbtedarik.com
+                <div class="info-card">
+                  <strong>TEDARİK SÜRECİ</strong>
+                  <span>Tek seferlik ve düzenli alımlar için uygun yönlendirme sağlanır.</span>
                 </div>
               </div>
             </div>
 
-            <div class="hero-right">
-              <a href="tel:+905327889759" class="contact-block">
-                <div>
-                  <span class="contact-label">Telefon</span>
-                  <h2 class="contact-value">0532 788 97 59</h2>
+            <div class="page-right">
+              <div class="form-box">
+                <div class="form-head">
+                  <h2>İLETİŞİM FORMU</h2>
+                  <p>Bilgilerinizi ve talebinizi iletin, size dönüş sağlayalım.</p>
                 </div>
-                <div class="contact-arrow">→</div>
-              </a>
 
-              <a href="https://wa.me/905379956261" target="_blank" rel="noopener" class="contact-block">
-                <div>
-                  <span class="contact-label">WhatsApp</span>
-                  <h2 class="contact-value">0537 995 62 61</h2>
-                </div>
-                <div class="contact-arrow">→</div>
-              </a>
+                <form action="#" method="post">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="name">Ad Soyad</label>
+                      <input type="text" id="name" name="name" placeholder="Ad Soyad" required>
+                    </div>
 
-              <a href="mailto:info@bdbtedarik.com" class="contact-block">
-                <div>
-                  <span class="contact-label">E-posta</span>
-                  <h2 class="contact-value">info@bdbtedarik.com</h2>
-                </div>
-                <div class="contact-arrow">→</div>
-              </a>
+                    <div class="field">
+                      <label for="company">Firma Adı</label>
+                      <input type="text" id="company" name="company" placeholder="Firma Adı">
+                    </div>
+
+                    <div class="field">
+                      <label for="phone">Telefon</label>
+                      <input type="tel" id="phone" name="phone" placeholder="Telefon Numaranız">
+                    </div>
+
+                    <div class="field">
+                      <label for="email">E-Posta</label>
+                      <input type="email" id="email" name="email" placeholder="E-Posta Adresiniz" required>
+                    </div>
+
+                    <div class="field full">
+                      <label for="subject">Konu</label>
+                      <input type="text" id="subject" name="subject" placeholder="Talep Konusu">
+                    </div>
+
+                    <div class="field full">
+                      <label for="message">Mesaj</label>
+                      <textarea id="message" name="message" placeholder="Talebinizi yazınız" required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="submit-row">
+                    <div class="submit-note">
+                      Form üzerinden ilettiğiniz talepler değerlendirilerek dönüş sağlanır.
+                    </div>
+                    <button type="submit" class="submit-btn">GÖNDER</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="form-box">
-          <div class="section-head">
-            <h2 class="section-title">İletişim Formu</h2>
-            <div class="section-note"></div>
-          </div>
-
-          <form
-            class="quote-form"
-            action="https://formspree.io/f/mzdjrjll"
-            method="POST"
-            id="quoteForm"
-          >
-            <input type="hidden" name="subject" value="BDB web sitesi teklif talebi">
-            <input type="hidden" name="_language" value="tr">
-
-            <div class="honeypot-wrap" aria-hidden="true">
-              <label for="website">Bu alanı boş bırakın</label>
-              <input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Ad Soyad</label>
-                <input id="name" name="name" type="text" required>
-              </div>
-              <div class="field">
-                <label for="phone">Telefon</label>
-                <input id="phone" name="phone" type="tel" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="email">E-posta</label>
-                <input id="email" name="email" type="email">
-              </div>
-              <div class="field">
-                <label for="product">Konu</label>
-                <input id="product" name="product" type="text">
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="message">Mesaj</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <div class="form-submit">
-              <button class="submit-btn" id="submitBtn" type="submit">Gönder</button>
-              <div class="submit-note"></div>
-            </div>
-          </form>
         </div>
       </div>
     </section>
@@ -573,20 +515,8 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 BDB</span>
-      <span></span>
+      <span>TEDARİK ÇÖZÜMLERİ</span>
     </div>
   </footer>
-
-  <script>
-    const quoteForm = document.getElementById("quoteForm");
-    const submitBtn = document.getElementById("submitBtn");
-
-    if (quoteForm && submitBtn) {
-      quoteForm.addEventListener("submit", function () {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Gönderiliyor...";
-      });
-    }
-  </script>
 </body>
 </html>
