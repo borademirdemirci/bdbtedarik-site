@@ -8,10 +8,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>BDB | Üreticiden Tedarik ve Ürün Araştırma Desteği</title>
+  <title>BDB | Tedarik Desteği</title>
   <meta
     name="description"
-    content="BDB, işletmelerin ihtiyaç duyduğu ürünleri araştırır, uygun üreticilerden tedarik eder ve hızlı teklif süreciyle pratik çözümler sunar."
+    content="BDB, işletmelerin ihtiyaç duyduğu ürünlerde hızlı teklif, net iletişim ve düzenli tedarik desteği sunar."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,20 +20,18 @@
 
   <style>
     :root{
-      --bg:#f3efe8;
-      --bg-soft:#faf7f2;
-      --surface:#fffdf9;
-      --text:#22201d;
-      --muted:#6b6258;
-      --line:#ddd4c8;
-      --dark:#2f3a32;
-      --dark-2:#3d4b42;
-      --accent:#8a6a45;
-      --accent-soft:#efe5d8;
-      --shadow:0 14px 34px rgba(24,24,24,.08);
-      --shadow-soft:0 8px 20px rgba(24,24,24,.05);
+      --bg:#111315;
+      --bg-soft:#171a1d;
+      --surface:#1d2125;
+      --surface-2:#23282d;
+      --text:#f2f4f5;
+      --muted:#a7afb7;
+      --line:#2d3339;
+      --accent:#d6d6d6;
+      --accent-soft:#2a2f35;
+      --shadow:0 14px 34px rgba(0,0,0,.28);
+      --shadow-soft:0 8px 20px rgba(0,0,0,.18);
       --max:1140px;
-      --radius:24px;
     }
 
     *{box-sizing:border-box}
@@ -43,7 +41,7 @@
       font-family:"Inter",Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(138,106,69,.08), transparent 24%),
+        radial-gradient(circle at top left, rgba(255,255,255,.04), transparent 20%),
         linear-gradient(180deg,var(--bg) 0%, var(--bg-soft) 100%);
     }
 
@@ -57,7 +55,8 @@
       z-index:50;
       padding:18px 0 10px;
       backdrop-filter:blur(10px);
-      background:rgba(243,239,232,.75);
+      background:rgba(17,19,21,.72);
+      border-bottom:1px solid rgba(255,255,255,.04);
     }
 
     .header-box{
@@ -66,9 +65,9 @@
       gap:18px;
       align-items:center;
       padding:14px 20px;
-      border:1px solid rgba(255,255,255,.6);
+      border:1px solid var(--line);
       border-radius:20px;
-      background:rgba(255,253,249,.88);
+      background:rgba(29,33,37,.88);
       box-shadow:var(--shadow-soft);
     }
 
@@ -102,8 +101,8 @@
 
     .nav a:hover,
     .nav a.active{
-      color:var(--dark);
-      background:rgba(138,106,69,.08);
+      color:var(--text);
+      background:var(--accent-soft);
     }
 
     .header-cta{
@@ -113,8 +112,8 @@
       justify-content:center;
       padding:13px 18px;
       border-radius:12px;
-      background:var(--dark);
-      color:#fff;
+      background:#f2f4f5;
+      color:#111315;
       font-size:.92rem;
       font-weight:800;
       transition:.2s ease;
@@ -137,10 +136,11 @@
       padding:58px;
       border-radius:32px;
       color:#fff;
+      border:1px solid var(--line);
       box-shadow:var(--shadow);
       background:
-        radial-gradient(circle at top right, rgba(201,170,131,.18), transparent 22%),
-        linear-gradient(135deg, rgba(47,58,50,.98), rgba(61,75,66,.96) 55%, rgba(77,94,84,.94) 100%);
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 20%),
+        linear-gradient(135deg, #181b1f, #111315 58%, #1e2328 100%);
     }
 
     .hero-box:before{
@@ -149,8 +149,8 @@
       inset:0;
       pointer-events:none;
       background:
-        linear-gradient(28deg,transparent 0 42%,rgba(255,255,255,.05) 42% 44%,transparent 44%),
-        linear-gradient(145deg,transparent 0 58%,rgba(255,255,255,.04) 58% 61%,transparent 61%);
+        linear-gradient(28deg,transparent 0 42%,rgba(255,255,255,.03) 42% 44%,transparent 44%),
+        linear-gradient(145deg,transparent 0 58%,rgba(255,255,255,.025) 58% 61%,transparent 61%);
     }
 
     .hero-content,
@@ -164,7 +164,7 @@
       align-items:center;
       gap:10px;
       margin-bottom:18px;
-      color:rgba(255,255,255,.76);
+      color:rgba(255,255,255,.62);
       font-size:.82rem;
       font-weight:800;
       letter-spacing:.18em;
@@ -176,7 +176,7 @@
       width:32px;
       height:2px;
       border-radius:999px;
-      background:rgba(255,255,255,.56);
+      background:rgba(255,255,255,.36);
     }
 
     h1{
@@ -190,7 +190,7 @@
     .hero p{
       margin:0;
       max-width:62ch;
-      color:rgba(255,255,255,.84);
+      color:rgba(255,255,255,.78);
       font-size:1.05rem;
       line-height:1.85;
     }
@@ -217,14 +217,14 @@
     .button:hover{transform:translateY(-2px)}
 
     .button.primary{
-      background:var(--accent);
-      color:#fff;
+      background:#f2f4f5;
+      color:#111315;
     }
 
     .button.secondary{
-      background:rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
       color:#fff;
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.10);
     }
 
     .hero-side{
@@ -235,8 +235,8 @@
     .hero-card{
       padding:24px;
       border-radius:24px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
     }
 
     .hero-card h2,
@@ -248,7 +248,7 @@
 
     .hero-card p{
       margin:0;
-      color:rgba(255,255,255,.78);
+      color:rgba(255,255,255,.72);
       font-size:.96rem;
       line-height:1.75;
     }
@@ -262,8 +262,8 @@
     .hero-tags span{
       padding:10px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.09);
-      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
       color:#fff;
       font-size:.9rem;
       font-weight:700;
@@ -279,7 +279,7 @@
 
     .section-kicker{
       margin-bottom:8px;
-      color:var(--accent);
+      color:#c8cdd2;
       font-size:.82rem;
       font-weight:800;
       letter-spacing:.14em;
@@ -339,7 +339,7 @@
     .mini-card strong{
       display:block;
       margin-bottom:8px;
-      color:var(--dark);
+      color:var(--text);
       font-size:1rem;
     }
 
@@ -363,10 +363,9 @@
       padding:34px;
       border-radius:28px;
       color:#fff;
+      border:1px solid var(--line);
       box-shadow:var(--shadow);
-      background:
-        radial-gradient(circle at top right, rgba(201,170,131,.16), transparent 26%),
-        linear-gradient(135deg,#2f3a32,#48564d);
+      background:linear-gradient(135deg,#1a1d21,#111315 65%, #1f2429 100%);
     }
 
     .cta-box h2{
@@ -379,7 +378,7 @@
     .cta-box p{
       margin:0;
       max-width:58ch;
-      color:rgba(255,255,255,.8);
+      color:rgba(255,255,255,.74);
       line-height:1.8;
     }
 
@@ -465,11 +464,11 @@
       <div class="container hero-box">
         <div class="hero-content">
           <div class="eyebrow">BDB Tedarik</div>
-          <h1>İhtiyacınıza uygun ürünü doğru üreticiden tedarik ediyoruz.</h1>
+          <h1>İhtiyacınıza uygun tedarik desteği sunuyoruz.</h1>
           <p>
-            BDB, işletmelerin ihtiyaç duyduğu ürünleri araştırır, uygun üretici ve tedarik
-            alternatiflerini sunar, teklif ve tedarik sürecini pratik şekilde yönetir.
-            Düzenli ihtiyaçlarda hızlı geri dönüş ve net iletişim odaklı çalışır.
+            BDB, işletmelerin ihtiyaç duyduğu ürünlerde hızlı teklif, net iletişim
+            ve düzenli tedarik desteği sunar. Amacımız süreci gereksiz detaylarla
+            uzatmadan, pratik ve güven veren bir şekilde ilerletmektir.
           </p>
 
           <div class="actions">
@@ -480,10 +479,10 @@
 
         <div class="hero-side">
           <div class="hero-card">
-            <h2>Gereksiz kalabalık yerine net tedarik desteği</h2>
+            <h2>Net, sade ve düzenli bir çalışma yapısı</h2>
             <p>
-              Ürün araştırması, alternatiflerin değerlendirilmesi ve uygun üreticiden temin
-              sürecinde sade, hızlı ve düzenli bir çalışma yapısı sunuyoruz.
+              İhtiyaca uygun ürünler için teklif ve tedarik sürecini daha kolay,
+              daha anlaşılır ve daha düzenli hale getirmeye odaklanıyoruz.
             </p>
           </div>
 
@@ -491,9 +490,9 @@
             <h3>Çalışma yaklaşımımız</h3>
             <div class="hero-tags">
               <span>Hızlı teklif</span>
-              <span>Üretici araştırması</span>
-              <span>Düzenli tedarik</span>
               <span>Net iletişim</span>
+              <span>Düzenli tedarik</span>
+              <span>Pratik süreç</span>
             </div>
           </div>
         </div>
@@ -506,7 +505,7 @@
           <div class="section-kicker">Hakkımızda</div>
           <h2 class="section-title">Kısa, net ve güven veren bir yapı</h2>
           <p class="section-text">
-            Ana sayfada gereksiz detaylara girmeden, ne yaptığınızı ve nasıl çalıştığınızı
+            Ana sayfada gereksiz detaylara girmeden, ne yaptığınızı ve nasıl bir hizmet sunduğunuzu
             doğrudan anlatmak daha doğru bir izlenim bırakır.
           </p>
         </div>
@@ -514,26 +513,25 @@
         <div class="about-layout">
           <div class="panel">
             <p>
-              BDB, müşteri ihtiyacına uygun ürünleri doğru üreticilerden temin etmek amacıyla
-              çalışan bir tedarik yapısıdır. Süreç boyunca ürün araştırması, alternatiflerin
-              değerlendirilmesi, teklif oluşturulması ve tedarik organizasyonu konularında
-              pratik destek sunar. Amaç, işletmelerin ihtiyaç duyduğu ürünlere daha hızlı,
-              daha net ve daha düzenli şekilde ulaşmasına yardımcı olmaktır.
+              BDB, işletmelerin ihtiyaç duyduğu ürünlerde tedarik desteği sunan bir yapıdır.
+              Süreç boyunca teklif, ürün yönlendirmesi ve tedarik organizasyonu konularında
+              pratik destek sağlar. Amaç, ihtiyaç duyulan ürünlere daha hızlı, daha net ve
+              daha düzenli şekilde ulaşılmasına yardımcı olmaktır.
             </p>
           </div>
 
           <div class="mini-grid">
             <div class="mini-card">
-              <strong>İhtiyaca göre ürün araştırması</strong>
-              <span>Talebe uygun ürün ve üretici seçenekleri belirlenir, gereksiz yönlendirme yapılmaz.</span>
+              <strong>Hızlı teklif süreci</strong>
+              <span>Taleplerinize kısa sürede dönüş yapılarak süreç gereksiz şekilde uzatılmaz.</span>
             </div>
             <div class="mini-card">
-              <strong>Alternatifli teklif yaklaşımı</strong>
-              <span>Ürün, fiyat ve tedarik seçenekleri birlikte değerlendirilerek daha doğru karar alınması sağlanır.</span>
+              <strong>Net iletişim</strong>
+              <span>İş akışı boyunca sade ve anlaşılır bir iletişim tercih edilir.</span>
             </div>
             <div class="mini-card">
-              <strong>Düzenli çalışma mantığı</strong>
-              <span>Tek seferlik taleplerde olduğu kadar tekrar eden ihtiyaçlarda da sürdürülebilir destek sunulur.</span>
+              <strong>Düzenli destek</strong>
+              <span>Tek seferlik veya tekrar eden ihtiyaçlarda sürdürülebilir tedarik desteği sunulur.</span>
             </div>
           </div>
         </div>
@@ -547,7 +545,7 @@
             <h2>Ürün talebiniz için bizimle iletişime geçin</h2>
             <p>
               İhtiyacınız olan ürün veya ürün grubu için detayları paylaşın,
-              size uygun tedarik sürecini birlikte değerlendirelim.
+              uygun tedarik sürecini birlikte değerlendirelim.
             </p>
           </div>
 
@@ -564,7 +562,7 @@
     <div class="container">
       <div class="footer-box">
         <span>© 2026 BDB</span>
-        <span>Üretici araştırması ve tedarik desteği</span>
+        <span>Tedarik desteği</span>
       </div>
     </div>
   </footer>
