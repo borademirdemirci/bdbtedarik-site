@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BDB | Hakkımızda</title>
-  <meta name="description" content="BDB, işletmeler için tedarik süreçlerinde düzenli, planlı ve çözüm odaklı destek sunar." />
+  <meta name="description" content="BDB, işletmeler için tedarik çözümlerinde düzenli, planlı ve çözüm odaklı bir yaklaşım sunar." />
 
   <link rel="icon" type="image/png" href="/BDBLOGO.png">
   <link rel="apple-touch-icon" href="/BDBLOGO.png">
@@ -17,7 +17,6 @@
     :root{
       --bg:#ffffff;
       --bg-soft:#f6f8fc;
-      --panel:#ffffff;
       --text:#233a63;
       --text-strong:#162947;
       --muted:#6a7890;
@@ -134,32 +133,18 @@
       transform:translateY(-1px);
     }
 
-    .page{
-      padding:38px 0 46px;
+    .hero{
+      padding:42px 0 22px;
     }
 
-    .page-box{
+    .hero-box{
       border:1px solid var(--line);
       border-radius:34px;
-      overflow:hidden;
+      padding:72px 58px;
       background:
         linear-gradient(135deg, rgba(45,67,108,.04), transparent 32%),
         linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
       box-shadow:var(--shadow);
-    }
-
-    .page-grid{
-      display:grid;
-      grid-template-columns:1.02fr .98fr;
-      min-height:680px;
-    }
-
-    .page-left{
-      padding:72px 58px 54px;
-      border-right:1px solid var(--line);
-      display:flex;
-      flex-direction:column;
-      gap:30px;
     }
 
     .eyebrow{
@@ -175,127 +160,63 @@
       margin:0;
       max-width:8ch;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:clamp(2.5rem,4.8vw,4.5rem);
+      font-size:clamp(2.6rem,4.8vw,4.6rem);
       line-height:.96;
       letter-spacing:-.04em;
       text-transform:uppercase;
       color:var(--text-strong);
     }
 
-    .page-sub{
-      margin:18px 0 0;
-      max-width:40ch;
+    .hero-sub{
+      margin:22px 0 0;
+      max-width:58ch;
       color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.85;
+      font-size:1.08rem;
+      line-height:1.95;
     }
 
-    .point-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:auto;
-      padding-top:24px;
-      border-top:1px solid var(--line);
+    .content{
+      padding:10px 0 54px;
     }
 
-    .point{
-      padding:20px 18px;
+    .content-box{
       border:1px solid var(--line);
-      border-radius:20px;
-      background:#fff;
-    }
-
-    .point strong{
-      display:block;
-      margin-bottom:8px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:.95rem;
-      color:var(--text-strong);
-      text-transform:uppercase;
-    }
-
-    .point span{
-      color:var(--muted);
-      font-size:.94rem;
-      line-height:1.7;
-    }
-
-    .page-right{
-      display:grid;
-      grid-template-rows:1.05fr 1fr 1fr;
-      background:var(--bg-soft);
-    }
-
-    .info-block{
-      padding:34px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(248,251,255,.95));
-    }
-
-    .info-block:last-child{
-      border-bottom:none;
-    }
-
-    .info-label{
-      display:block;
-      margin-bottom:12px;
-      color:var(--green-deep);
-      font-size:.8rem;
-      font-weight:800;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .info-title{
-      margin:0 0 12px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:1.55rem;
-      line-height:1.08;
-      letter-spacing:-.03em;
-      text-transform:uppercase;
-      color:var(--text-strong);
-    }
-
-    .info-block p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:.96rem;
-    }
-
-    .section{
-      padding:0 0 46px;
-    }
-
-    .section-box{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .card{
-      padding:28px 24px;
-      border:1px solid var(--line);
-      border-radius:24px;
+      border-radius:34px;
+      overflow:hidden;
       background:#fff;
       box-shadow:var(--shadow-soft);
     }
 
-    .card h2{
-      margin:0 0 12px;
+    .about-row{
+      display:grid;
+      grid-template-columns:280px 1fr;
+      gap:30px;
+      padding:34px 38px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .about-row:last-child{
+      border-bottom:none;
+    }
+
+    .about-label{
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:1.35rem;
-      line-height:1.08;
-      letter-spacing:-.03em;
+      font-size:1.02rem;
+      font-weight:800;
+      letter-spacing:.03em;
       text-transform:uppercase;
       color:var(--text-strong);
     }
 
-    .card p{
-      margin:0;
+    .about-text p{
+      margin:0 0 16px;
       color:var(--muted);
-      line-height:1.85;
+      font-size:1rem;
+      line-height:1.95;
+    }
+
+    .about-text p:last-child{
+      margin-bottom:0;
     }
 
     .cta{
@@ -361,14 +282,9 @@
     }
 
     @media (max-width:1040px){
-      .page-grid,
-      .section-box{
+      .about-row{
         grid-template-columns:1fr;
-      }
-
-      .page-left{
-        border-right:none;
-        border-bottom:1px solid var(--line);
+        gap:14px;
       }
     }
 
@@ -383,10 +299,6 @@
         justify-self:center;
       }
 
-      .point-grid{
-        grid-template-columns:1fr;
-      }
-
       .logo img{
         height:108px;
       }
@@ -398,8 +310,12 @@
 
     @media (max-width:720px){
       .header{position:static}
-      .page-left{padding:38px 22px}
-      .info-block{padding:24px 22px}
+      .hero-box{
+        padding:38px 22px;
+      }
+      .about-row{
+        padding:24px 22px;
+      }
       h1{
         max-width:10ch;
         font-size:2.4rem;
@@ -432,80 +348,67 @@
   </header>
 
   <main>
-    <section class="page">
+    <section class="hero">
       <div class="container">
-        <div class="page-box">
-          <div class="page-grid">
-            <div class="page-left">
-              <div>
-                <div class="eyebrow">BDB TEDARİK</div>
-                <h1>HAKKIMIZDA</h1>
-                <p class="page-sub">
-                  BDB, işletmelerin ürün ihtiyaçlarında daha düzenli, planlı ve çözüm odaklı bir tedarik süreci oluşturmayı amaçlayan bir çalışma anlayışıyla hareket eder.
-                </p>
-              </div>
-
-              <div class="point-grid">
-                <div class="point">
-                  <strong>ÇÖZÜM ODAKLI</strong>
-                  <span>İhtiyaca uygun ürün ve süreç değerlendirmesiyle ilerlenir.</span>
-                </div>
-                <div class="point">
-                  <strong>DÜZENLİ TAKİP</strong>
-                  <span>Tedarik adımları planlı şekilde ele alınır ve takip edilir.</span>
-                </div>
-                <div class="point">
-                  <strong>NET İLETİŞİM</strong>
-                  <span>Süreç boyunca açık ve doğrudan iletişim esas alınır.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="page-right">
-              <div class="info-block">
-                <span class="info-label">Yaklaşımımız</span>
-                <h2 class="info-title">İHTİYACA UYGUN TEDARİK SÜRECİ</h2>
-                <p>
-                  Her talebin içeriği farklı olduğu için süreç, ihtiyaç doğrultusunda değerlendirilir ve uygun ürün yönlendirmesiyle ilerletilir.
-                </p>
-              </div>
-
-              <div class="info-block">
-                <span class="info-label">Çalışma Şeklimiz</span>
-                <h2 class="info-title">PLANLI VE DÜZENLİ İLERLEME</h2>
-                <p>
-                  Tek seferlik taleplerde de devam eden alımlarda da süreçlerin daha kontrollü ve düzenli ilerlemesine önem verilir.
-                </p>
-              </div>
-
-              <div class="info-block">
-                <span class="info-label">İletişim</span>
-                <h2 class="info-title">DOĞRUDAN VE ANLAŞILIR İLETİŞİM</h2>
-                <p>
-                  Talep, ürün ve süreç detaylarının net şekilde paylaşılması; daha sağlıklı ve hızlı bir ilerleme sağlar.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="hero-box">
+          <div class="eyebrow">BDB TEDARİK</div>
+          <h1>HAKKIMIZDA</h1>
+          <p class="hero-sub">
+            BDB, işletmelerin ürün ihtiyaçlarına uygun tedarik çözümleri sunmak amacıyla çalışan, süreci planlı ve anlaşılır şekilde yürütmeye önem veren bir yapıdır.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="content">
       <div class="container">
-        <div class="section-box">
-          <div class="card">
-            <h2>NE YAPIYORUZ</h2>
-            <p>
-              İşletmelerin ürün taleplerini değerlendiriyor, uygun tedarik sürecinin oluşturulmasına destek oluyor ve ihtiyaçlara göre daha planlı bir akış sağlıyoruz.
-            </p>
+        <div class="content-box">
+          <div class="about-row">
+            <div class="about-label">Yaklaşımımız</div>
+            <div class="about-text">
+              <p>
+                Her işletmenin ihtiyaç yapısı farklı olduğu için tedarik süreci de buna uygun şekilde ele alınmalıdır. BDB olarak talepleri hazır bir kalıpla değil, ihtiyacın içeriğine göre değerlendiriyoruz.
+              </p>
+              <p>
+                Amaç; ürün ihtiyacının daha doğru anlaşılması, sürecin gereksiz karmaşa olmadan ilerlemesi ve iletişimin düzenli şekilde yürütülmesidir.
+              </p>
+            </div>
           </div>
 
-          <div class="card">
-            <h2>NASIL ÇALIŞIYORUZ</h2>
-            <p>
-              Talebin anlaşılması, ürün yönlendirmesi, süreç takibi ve iletişimin düzenli yürütülmesi esasına dayalı bir çalışma yaklaşımı benimsiyoruz.
-            </p>
+          <div class="about-row">
+            <div class="about-label">Nasıl Çalışıyoruz</div>
+            <div class="about-text">
+              <p>
+                Sürecin ilk adımında talep detayları değerlendirilir, ardından ihtiyaç yapısına uygun yönlendirme ve tedarik planlaması yapılır.
+              </p>
+              <p>
+                Tek seferlik alımlarda da devam eden ihtiyaçlarda da temel yaklaşımımız; düzenli takip, net bilgi akışı ve kontrollü ilerlemedir.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-row">
+            <div class="about-label">Ne Sunuyoruz</div>
+            <div class="about-text">
+              <p>
+                BDB, işletmeler için ürün ihtiyaçlarının daha planlı, daha düzenli ve daha yönetilebilir şekilde ilerlemesine destek sunar.
+              </p>
+              <p>
+                İletişimde açıklık, süreçte düzen ve ihtiyaç doğrultusunda çözüm üretme yaklaşımı işimizin temelini oluşturur.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-row">
+            <div class="about-label">İletişim</div>
+            <div class="about-text">
+              <p>
+                Ürün talepleriniz, teklif süreçleriniz ve tedarik ihtiyaçlarınız için bizimle doğrudan iletişime geçebilirsiniz.
+              </p>
+              <p>
+                Telefon, WhatsApp ve e-posta üzerinden gelen talepler değerlendirilerek uygun şekilde dönüş sağlanır.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -516,7 +419,7 @@
         <div class="cta-box">
           <div>
             <h2>TEDARİK SÜRECİNİZ İÇİN İLETİŞİME GEÇİN</h2>
-            <p>Ürün talepleriniz ve tedarik süreçleriniz için bizimle doğrudan iletişime geçebilirsiniz.</p>
+            <p>Ürün talepleriniz ve tedarik ihtiyaçlarınız için bizimle doğrudan iletişime geçebilirsiniz.</p>
           </div>
           <a href="/iletisim/" class="cta-btn">İLETİŞİME GEÇ</a>
         </div>
