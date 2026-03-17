@@ -29,7 +29,6 @@
       --navy-soft:#395683;
       --green:#9fbe77;
       --green-deep:#86a75f;
-      --shadow:0 18px 40px rgba(27,44,74,.08);
       --shadow-soft:0 10px 25px rgba(27,44,74,.05);
       --max:1180px;
     }
@@ -136,16 +135,16 @@
       transform:translateY(-1px);
     }
 
-    .hero-products{
-      padding:42px 0 26px;
+    .intro{
+      padding:56px 0 28px;
     }
 
-    .products-intro{
+    .intro-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:48px;
+      gap:56px;
       align-items:end;
-      padding:0 0 26px;
+      padding-bottom:28px;
       border-bottom:1px solid var(--line);
     }
 
@@ -158,77 +157,87 @@
       margin-bottom:18px;
     }
 
-    .products-intro-left h1{
+    h1{
       margin:0;
-      max-width:8ch;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:clamp(2.8rem,5vw,4.8rem);
-      line-height:.96;
-      letter-spacing:-.04em;
+      font-size:clamp(3rem,5vw,5.2rem);
+      line-height:.92;
+      letter-spacing:-.05em;
       text-transform:uppercase;
       color:var(--text-strong);
     }
 
-    .products-intro-right{
-      max-width:58ch;
-    }
-
-    .products-intro-right p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:1.03rem;
-      line-height:1.9;
-    }
-
-    .products-intro-right p:last-child{
-      margin-bottom:0;
-    }
-
-    .overview{
-      padding:0 0 26px;
-    }
-
-    .overview-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:48px;
-      padding:10px 4px 0;
-    }
-
-    .overview-text p{
+    .intro-copy p{
       margin:0 0 16px;
       color:var(--muted);
-      font-size:1rem;
+      font-size:1.05rem;
       line-height:1.95;
     }
 
-    .overview-text p:last-child{
+    .intro-copy p:last-child{
       margin-bottom:0;
     }
 
-    .content{
-      padding:0 0 54px;
+    .products{
+      padding:8px 0 54px;
     }
 
-    .content-wrap{
-      background:#fff;
+    .products-list{
       border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
     }
 
-    .section-row{
+    .product-item{
+      display:grid;
+      grid-template-columns:120px 220px 1fr;
+      gap:26px;
+      padding:30px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+
+    .product-no{
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:2.1rem;
+      font-weight:800;
+      line-height:1;
+      letter-spacing:-.04em;
+      color:#bfd0a7;
+    }
+
+    .product-name{
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:1rem;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--text-strong);
+      padding-top:4px;
+    }
+
+    .product-text p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.95;
+      font-size:1rem;
+    }
+
+    .product-text p:last-child{
+      margin-bottom:0;
+    }
+
+    .summary{
+      padding:0 0 48px;
+    }
+
+    .summary-inner{
       display:grid;
       grid-template-columns:220px 1fr;
-      gap:34px;
-      padding:34px 0;
-      border-bottom:1px solid var(--line);
+      gap:26px;
+      padding-top:10px;
+      border-top:1px solid var(--line);
     }
 
-    .section-row:last-child{
-      border-bottom:none;
-    }
-
-    .section-title{
+    .summary-title{
       font-family:"Montserrat", Arial, sans-serif;
       font-size:1rem;
       font-weight:800;
@@ -237,42 +246,32 @@
       color:var(--text-strong);
     }
 
-    .section-body p{
+    .summary-text p{
       margin:0 0 14px;
       color:var(--muted);
       line-height:1.95;
-      font-size:1rem;
     }
 
-    .section-body p:last-child{
+    .summary-text p:last-child{
       margin-bottom:0;
     }
 
-    .section-body ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
+    .cta{
+      padding:0 0 48px;
     }
 
-    .section-body li{
-      margin:0 0 10px;
-      line-height:1.9;
+    .cta-line{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      padding:26px 0 0;
+      border-top:1px solid var(--line);
     }
 
-    .section-body li:last-child{
-      margin-bottom:0;
-    }
-
-    .note{
-      padding:0 0 46px;
-    }
-
-    .note-box{
-      padding:0;
-    }
-
-    .note-box h2{
-      margin:0 0 12px;
+    .cta-line h2{
+      margin:0 0 8px;
       font-family:"Montserrat", Arial, sans-serif;
       font-size:1.55rem;
       line-height:1.08;
@@ -281,58 +280,32 @@
       color:var(--text-strong);
     }
 
-    .note-box p{
+    .cta-line p{
       margin:0;
-      max-width:70ch;
+      max-width:640px;
       color:var(--muted);
-      line-height:1.9;
-    }
-
-    .cta{
-      padding:0 0 48px;
-    }
-
-    .cta-box{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-      flex-wrap:wrap;
-      padding:34px 30px;
-      border-radius:28px;
-      background:linear-gradient(135deg,var(--navy) 0%, #1f3153 100%);
-      box-shadow:var(--shadow);
-    }
-
-    .cta-box h2{
-      margin:0 0 10px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:2rem;
-      line-height:1.05;
-      letter-spacing:-.03em;
-      text-transform:uppercase;
-      color:#fff;
-    }
-
-    .cta-box p{
-      margin:0;
-      max-width:620px;
-      color:rgba(255,255,255,.78);
-      line-height:1.8;
+      line-height:1.85;
     }
 
     .cta-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:54px;
+      min-height:52px;
       padding:0 22px;
       border-radius:14px;
-      background:var(--green);
-      color:#173050;
+      border:1px solid var(--line-soft);
+      background:#fff;
+      color:var(--navy);
       font-weight:800;
       text-transform:uppercase;
       white-space:nowrap;
+      transition:.2s ease;
+    }
+
+    .cta-btn:hover{
+      border-color:var(--green);
+      color:var(--text-strong);
     }
 
     .footer{
@@ -351,11 +324,19 @@
     }
 
     @media (max-width:1040px){
-      .products-intro,
-      .overview-grid,
-      .section-row{
+      .intro-grid,
+      .product-item,
+      .summary-inner{
         grid-template-columns:1fr;
-        gap:16px;
+        gap:14px;
+      }
+
+      .product-item{
+        padding:26px 0;
+      }
+
+      .product-no{
+        font-size:1.4rem;
       }
     }
 
@@ -382,21 +363,13 @@
     @media (max-width:720px){
       .header{position:static}
 
-      .hero-products{
-        padding:38px 0 20px;
+      .intro{
+        padding:40px 0 22px;
       }
 
-      .section-row{
-        padding:24px 0;
-      }
-
-      .cta-box{
-        padding:28px 22px;
-      }
-
-      .products-intro-left h1{
+      h1{
+        font-size:2.7rem;
         max-width:10ch;
-        font-size:2.5rem;
       }
 
       .logo img{
@@ -414,7 +387,7 @@
 
       <nav class="nav" aria-label="Ana menü">
         <a href="/">ANA SAYFA</a>
-        <a href="/urunler/" class="active">ÜRÜNLER</a>
+        <a href="/ürünler/" class="active">ÜRÜNLER</a>
         <a href="/hakkimizda/">HAKKIMIZDA</a>
         <a href="/iletisim/">İLETİŞİM</a>
       </nav>
@@ -424,119 +397,101 @@
   </header>
 
   <main>
-    <section class="hero hero-products">
+    <section class="intro">
       <div class="container">
-        <div class="products-intro">
-          <div class="products-intro-left">
+        <div class="intro-grid">
+          <div>
             <div class="eyebrow">BDB TEDARİK</div>
             <h1>ÜRÜNLER</h1>
           </div>
 
-          <div class="products-intro-right">
+          <div class="intro-copy">
             <p>
               İşletmelerin ihtiyaçlarına göre şekillenen ürün ve tedarik çözümleri sunuyoruz.
             </p>
             <p>
-              Süreç; talep edilen ürün grubu, kullanım alanı ve alım yapısına göre değerlendirilerek ilerletilir.
+              Hazır bir ürün listesi sunmak yerine, talep edilen ürün grubu ve kullanım yapısına göre süreci değerlendiriyoruz.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="overview">
+    <section class="products">
       <div class="container">
-        <div class="overview-grid">
-          <div class="overview-text">
-            <p>
-              Tedarik süreci, standart bir katalog mantığıyla değil; işletmenin ihtiyacına, kullanım yoğunluğuna ve alım yapısına göre ele alınır.
-            </p>
-            <p>
-              Bu nedenle ürün yaklaşımımız, tek tek sabit kalemlerden çok; ihtiyaç alanlarını doğru belirleyip buna uygun çözüm sunmaya dayanır.
-            </p>
-          </div>
-
-          <div class="overview-text">
-            <p>
-              Farklı sektörlerde kullanılan sarf ürünleri, koruyucu ürünler, ambalaj çözümleri ve yardımcı tedarik kalemleri talepe göre değerlendirilir.
-            </p>
-            <p>
-              Tek seferlik alımlarda da düzenli ihtiyaçlarda da süreç, daha kontrollü ve anlaşılır bir şekilde ilerletilir.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="container">
-        <div class="content-wrap">
-          <div class="section-row">
-            <div class="section-title">Ürün Grupları</div>
-            <div class="section-body">
+        <div class="products-list">
+          <div class="product-item">
+            <div class="product-no">01</div>
+            <div class="product-name">Genel Ürün Yapısı</div>
+            <div class="product-text">
               <p>
-                Tedarik sürecinde farklı kullanım alanlarına yönelik genel ürün grupları üzerinden ilerlenir. Bu yapı; koruyucu ürünler, hijyen ve sarf kalemleri, ambalaj ürünleri, etiketleme çözümleri, sevkiyat destek ürünleri ve benzeri işletme ihtiyaçlarını kapsayabilir.
-              </p>
-              <p>
-                Talep edilen ürünün niteliğine göre süreç yeniden şekillendirilir ve ihtiyaç yapısına uygun yönlendirme yapılır.
+                Tedarik sürecinde farklı kullanım alanlarına yönelik genel ürün grupları üzerinden ilerlenir. Bu yapı; koruyucu ürünler, hijyen ve sarf kalemleri, ambalaj ürünleri, etiketleme çözümleri, sevkiyat destek ürünleri ve işletme içi yardımcı ihtiyaçları kapsayabilir.
               </p>
             </div>
           </div>
 
-          <div class="section-row">
-            <div class="section-title">Değerlendirme</div>
-            <div class="section-body">
+          <div class="product-item">
+            <div class="product-no">02</div>
+            <div class="product-name">Talep Değerlendirmesi</div>
+            <div class="product-text">
               <p>
-                Her ürün talebi aynı yapıda olmadığı için değerlendirme; kullanım amacı, istenen ölçü veya teknik detay, miktar ve sipariş düzenine göre yapılır.
+                Her ürün talebi aynı yapıda olmadığı için değerlendirme; kullanım amacı, teknik detay, miktar ve alım düzenine göre yapılır.
               </p>
               <p>
-                Böylece yalnızca ürünün kendisi değil, o ürünün nasıl ve hangi sıklıkla kullanılacağı da sürecin bir parçası olarak ele alınır.
-              </p>
-            </div>
-          </div>
-
-          <div class="section-row">
-            <div class="section-title">Tedarik Yapısı</div>
-            <div class="section-body">
-              <p>
-                Çalışma yapımız hazır stok mantığından çok, talep odaklı tedarik anlayışına dayanır. Bu yaklaşım, işletmeye göre şekillenen daha esnek ve daha doğru bir süreç kurulmasına imkan verir.
-              </p>
-              <p>
-                İhtiyaç duyulan ürün grupları paylaşıldığında, buna uygun içerik ve süreç yapısı üzerinden değerlendirme yapılır.
+                Süreç yalnızca ürünün kendisine değil, ürünün nasıl kullanılacağına ve hangi yapıda talep edildiğine göre şekillenir.
               </p>
             </div>
           </div>
 
-          <div class="section-row">
-            <div class="section-title">Kapsam</div>
-            <div class="section-body">
-              <ul>
-                <li>Koruyucu ve hijyen amaçlı kullanım ürünleri</li>
-                <li>Ambalaj, paketleme ve yardımcı sarf kalemleri</li>
-                <li>Sevkiyat ve depolama sürecinde kullanılan destek ürünleri</li>
-                <li>Etiketleme, düzenleme ve işletme içi yardımcı ürün ihtiyaçları</li>
-                <li>Tek seferlik veya devam eden alım yapısına uygun tedarik talepleri</li>
-              </ul>
+          <div class="product-item">
+            <div class="product-no">03</div>
+            <div class="product-name">Tedarik Yaklaşımı</div>
+            <div class="product-text">
+              <p>
+                Çalışma yapımız hazır stok mantığından çok, talep odaklı tedarik anlayışına dayanır. Bu yaklaşım, işletmeye daha uygun ve daha esnek bir süreç kurulmasına imkan verir.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-no">04</div>
+            <div class="product-name">Kullanım Alanları</div>
+            <div class="product-text">
+              <p>
+                Koruyucu ve hijyen amaçlı kullanım ürünleri, ambalaj ve paketleme ürünleri, sevkiyat ve depolama destek kalemleri, etiketleme ve yardımcı sarf grupları gibi farklı alanlarda değerlendirme yapılabilir.
+              </p>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-no">05</div>
+            <div class="product-name">Alım Yapısı</div>
+            <div class="product-text">
+              <p>
+                Tek seferlik ihtiyaçlarda da devam eden alımlarda da süreç aynı dikkatle ele alınır. Talebin niteliğine göre daha planlı ve daha kontrollü bir ilerleme sağlanır.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="note">
+    <section class="summary">
       <div class="container">
-        <div class="note-box">
-          <h2>Ürün Talebi</h2>
-          <p>
-            İhtiyaç duyduğunuz ürün grubunu ve kullanım detaylarını bizimle paylaşabilirsiniz. Talebiniz içeriğine göre değerlendirilerek uygun tedarik süreci hakkında dönüş sağlanır.
-          </p>
+        <div class="summary-inner">
+          <div class="summary-title">Ürün Talebi</div>
+          <div class="summary-text">
+            <p>
+              İhtiyaç duyduğunuz ürün grubunu ve kullanım detaylarını bizimle paylaşabilirsiniz. Talebinizin içeriğine göre uygun tedarik süreci değerlendirilerek dönüş sağlanır.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta-line">
           <div>
             <h2>ÜRÜN TALEBİNİZ İÇİN BİZE ULAŞIN</h2>
             <p>İhtiyacınıza uygun ürün grupları ve tedarik süreci için iletişim sayfası üzerinden bize ulaşabilirsiniz.</p>
