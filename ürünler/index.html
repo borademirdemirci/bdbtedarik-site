@@ -136,18 +136,17 @@
       transform:translateY(-1px);
     }
 
-    .hero{
-      padding:42px 0 18px;
+    .hero-products{
+      padding:42px 0 26px;
     }
 
-    .hero-box{
-      border:1px solid var(--line);
-      border-radius:34px;
-      padding:72px 58px;
-      background:
-        linear-gradient(135deg, rgba(45,67,108,.04), transparent 32%),
-        linear-gradient(180deg,#ffffff 0%, #f8fbff 100%);
-      box-shadow:var(--shadow);
+    .products-intro{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:48px;
+      align-items:end;
+      padding:0 0 26px;
+      border-bottom:1px solid var(--line);
     }
 
     .eyebrow{
@@ -159,23 +158,30 @@
       margin-bottom:18px;
     }
 
-    h1{
+    .products-intro-left h1{
       margin:0;
       max-width:8ch;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:clamp(2.6rem,4.8vw,4.6rem);
+      font-size:clamp(2.8rem,5vw,4.8rem);
       line-height:.96;
       letter-spacing:-.04em;
       text-transform:uppercase;
       color:var(--text-strong);
     }
 
-    .hero-sub{
-      margin:22px 0 0;
-      max-width:60ch;
+    .products-intro-right{
+      max-width:58ch;
+    }
+
+    .products-intro-right p{
+      margin:0 0 14px;
       color:var(--muted);
-      font-size:1.08rem;
-      line-height:1.95;
+      font-size:1.03rem;
+      line-height:1.9;
+    }
+
+    .products-intro-right p:last-child{
+      margin-bottom:0;
     }
 
     .overview{
@@ -186,7 +192,7 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:48px;
-      padding:28px 4px 0;
+      padding:10px 4px 0;
     }
 
     .overview-text p{
@@ -345,6 +351,7 @@
     }
 
     @media (max-width:1040px){
+      .products-intro,
       .overview-grid,
       .section-row{
         grid-template-columns:1fr;
@@ -374,19 +381,24 @@
 
     @media (max-width:720px){
       .header{position:static}
-      .hero-box{
-        padding:38px 22px;
+
+      .hero-products{
+        padding:38px 0 20px;
       }
+
       .section-row{
         padding:24px 0;
       }
+
       .cta-box{
         padding:28px 22px;
       }
-      h1{
+
+      .products-intro-left h1{
         max-width:10ch;
-        font-size:2.4rem;
+        font-size:2.5rem;
       }
+
       .logo img{
         height:96px;
       }
@@ -412,14 +424,22 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-products">
       <div class="container">
-        <div class="hero-box">
-          <div class="eyebrow">BDB TEDARİK</div>
-          <h1>ÜRÜNLER</h1>
-          <p class="hero-sub">
-            Hazır ve sabit bir ürün listesi yerine, işletmelerin ihtiyaçlarına göre şekillenen tedarik çözümleri sunuyoruz. Ürün talepleri kullanım alanı, miktar ve süreç yapısına göre değerlendirilir.
-          </p>
+        <div class="products-intro">
+          <div class="products-intro-left">
+            <div class="eyebrow">BDB TEDARİK</div>
+            <h1>ÜRÜNLER</h1>
+          </div>
+
+          <div class="products-intro-right">
+            <p>
+              İşletmelerin ihtiyaçlarına göre şekillenen ürün ve tedarik çözümleri sunuyoruz.
+            </p>
+            <p>
+              Süreç; talep edilen ürün grubu, kullanım alanı ve alım yapısına göre değerlendirilerek ilerletilir.
+            </p>
+          </div>
         </div>
       </div>
     </section>
