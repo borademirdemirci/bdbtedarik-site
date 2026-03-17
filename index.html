@@ -20,28 +20,27 @@
 
   <style>
     :root{
-      --bg:#111315;
-      --bg-soft:#171a1d;
-      --surface:#1d2125;
-      --surface-2:#23282d;
-      --text:#f2f4f5;
-      --muted:#a7afb7;
-      --line:#2d3339;
-      --accent:#d6d6d6;
-      --accent-soft:#2a2f35;
-      --shadow:0 14px 34px rgba(0,0,0,.28);
-      --shadow-soft:0 8px 20px rgba(0,0,0,.18);
-      --max:1140px;
+      --bg:#111214;
+      --bg-soft:#17191c;
+      --surface:#1d2024;
+      --surface-soft:#22262b;
+      --text:#f3f4f6;
+      --muted:#a5adb6;
+      --line:#2c3137;
+      --line-soft:#353b42;
+      --accent:#d9dde2;
+      --max:1180px;
+      --shadow:0 18px 40px rgba(0,0,0,.22);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:"Inter",Arial,sans-serif;
+      font-family:"Inter", Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,.04), transparent 20%),
+        radial-gradient(circle at top left, rgba(255,255,255,.03), transparent 22%),
         linear-gradient(180deg,var(--bg) 0%, var(--bg-soft) 100%);
     }
 
@@ -53,28 +52,23 @@
       position:sticky;
       top:0;
       z-index:50;
-      padding:18px 0 10px;
-      backdrop-filter:blur(10px);
-      background:rgba(17,19,21,.72);
+      background:rgba(17,18,20,.78);
+      backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(255,255,255,.04);
     }
 
-    .header-box{
+    .header-inner{
+      min-height:86px;
       display:grid;
-      grid-template-columns:220px 1fr 190px;
-      gap:18px;
+      grid-template-columns:220px 1fr 180px;
       align-items:center;
-      padding:14px 20px;
-      border:1px solid var(--line);
-      border-radius:20px;
-      background:rgba(29,33,37,.88);
-      box-shadow:var(--shadow-soft);
+      gap:18px;
     }
 
     .logo-wrap{
       display:flex;
       align-items:center;
-      min-height:62px;
+      min-height:64px;
     }
 
     .logo-image{
@@ -102,7 +96,7 @@
     .nav a:hover,
     .nav a.active{
       color:var(--text);
-      background:var(--accent-soft);
+      background:rgba(255,255,255,.05);
     }
 
     .header-cta{
@@ -110,10 +104,10 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:13px 18px;
+      padding:12px 18px;
       border-radius:12px;
-      background:#f2f4f5;
-      color:#111315;
+      background:var(--text);
+      color:#101113;
       font-size:.92rem;
       font-weight:800;
       transition:.2s ease;
@@ -122,48 +116,46 @@
     .header-cta:hover{transform:translateY(-1px)}
 
     .hero{
-      padding:14px 0 26px;
+      padding:24px 0 34px;
     }
 
-    .hero-box{
+    .hero-shell{
       position:relative;
       overflow:hidden;
-      min-height:600px;
-      display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:30px;
-      align-items:center;
-      padding:58px;
-      border-radius:32px;
-      color:#fff;
       border:1px solid var(--line);
+      border-radius:34px;
       box-shadow:var(--shadow);
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 20%),
-        linear-gradient(135deg, #181b1f, #111315 58%, #1e2328 100%);
+        radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 18%),
+        linear-gradient(135deg,#17191c 0%, #111214 58%, #1c2025 100%);
     }
 
-    .hero-box:before{
+    .hero-shell:before{
       content:"";
       position:absolute;
       inset:0;
       pointer-events:none;
       background:
-        linear-gradient(28deg,transparent 0 42%,rgba(255,255,255,.03) 42% 44%,transparent 44%),
-        linear-gradient(145deg,transparent 0 58%,rgba(255,255,255,.025) 58% 61%,transparent 61%);
+        linear-gradient(30deg,transparent 0 44%,rgba(255,255,255,.025) 44% 45%,transparent 45%),
+        linear-gradient(145deg,transparent 0 64%,rgba(255,255,255,.02) 64% 65%,transparent 65%);
     }
 
-    .hero-content,
-    .hero-side{
+    .hero-inner{
       position:relative;
       z-index:1;
+      min-height:680px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:36px;
+      align-items:center;
+      padding:64px 58px;
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      margin-bottom:18px;
+      margin-bottom:20px;
       color:rgba(255,255,255,.62);
       font-size:.82rem;
       font-weight:800;
@@ -173,40 +165,40 @@
 
     .eyebrow:before{
       content:"";
-      width:32px;
+      width:30px;
       height:2px;
       border-radius:999px;
-      background:rgba(255,255,255,.36);
+      background:rgba(255,255,255,.28);
     }
 
     h1{
-      margin:0 0 18px;
-      max-width:12ch;
-      font-size:clamp(2.9rem,5.5vw,4.9rem);
-      line-height:1.02;
-      letter-spacing:-.05em;
+      margin:0 0 20px;
+      max-width:11ch;
+      font-size:clamp(3rem,5.8vw,5.3rem);
+      line-height:.98;
+      letter-spacing:-.06em;
     }
 
-    .hero p{
+    .hero-text{
       margin:0;
-      max-width:62ch;
+      max-width:60ch;
       color:rgba(255,255,255,.78);
       font-size:1.05rem;
-      line-height:1.85;
+      line-height:1.9;
     }
 
-    .actions{
+    .hero-actions{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-top:28px;
+      margin-top:30px;
     }
 
     .button{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-width:156px;
+      min-width:160px;
       padding:15px 20px;
       border-radius:14px;
       font-weight:800;
@@ -217,60 +209,86 @@
     .button:hover{transform:translateY(-2px)}
 
     .button.primary{
-      background:#f2f4f5;
-      color:#111315;
+      background:var(--text);
+      color:#111214;
     }
 
     .button.secondary{
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
     }
 
     .hero-side{
-      display:grid;
-      gap:16px;
+      align-self:stretch;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-end;
     }
 
-    .hero-card{
-      padding:24px;
-      border-radius:24px;
-      background:rgba(255,255,255,.04);
+    .hero-panel{
+      width:100%;
+      max-width:420px;
+      padding:30px 28px;
+      border-radius:26px;
+      background:rgba(255,255,255,.035);
       border:1px solid rgba(255,255,255,.07);
     }
 
-    .hero-card h2,
-    .hero-card h3{
-      margin:0 0 10px;
-      font-size:1.12rem;
+    .hero-panel-top{
+      padding-bottom:20px;
+      margin-bottom:20px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .hero-panel small{
+      display:block;
+      margin-bottom:10px;
+      color:rgba(255,255,255,.5);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .hero-panel strong{
+      display:block;
+      font-size:1.35rem;
       line-height:1.35;
-    }
-
-    .hero-card p{
-      margin:0;
-      color:rgba(255,255,255,.72);
-      font-size:.96rem;
-      line-height:1.75;
-    }
-
-    .hero-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .hero-tags span{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      color:#fff;
-      font-size:.9rem;
       font-weight:700;
     }
 
+    .hero-lines{
+      display:grid;
+      gap:18px;
+    }
+
+    .hero-line{
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .hero-line:last-child{
+      padding-bottom:0;
+      border-bottom:none;
+    }
+
+    .hero-line b{
+      display:block;
+      margin-bottom:7px;
+      color:var(--text);
+      font-size:.98rem;
+    }
+
+    .hero-line span{
+      display:block;
+      color:rgba(255,255,255,.68);
+      line-height:1.7;
+      font-size:.94rem;
+    }
+
     .section{
-      padding:34px 0;
+      padding:36px 0;
     }
 
     .section-head{
@@ -278,8 +296,8 @@
     }
 
     .section-kicker{
-      margin-bottom:8px;
-      color:#c8cdd2;
+      margin-bottom:10px;
+      color:#c7cdd4;
       font-size:.82rem;
       font-weight:800;
       letter-spacing:.14em;
@@ -288,98 +306,109 @@
 
     .section-title{
       margin:0 0 12px;
-      font-size:clamp(1.9rem,3vw,2.7rem);
+      font-size:clamp(1.9rem,3vw,2.8rem);
       line-height:1.08;
-      letter-spacing:-.03em;
+      letter-spacing:-.04em;
     }
 
     .section-text{
       margin:0;
-      max-width:72ch;
+      max-width:70ch;
       color:var(--muted);
       font-size:1rem;
-      line-height:1.8;
+      line-height:1.9;
     }
 
-    .about-layout{
+    .statement{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .panel{
-      background:var(--surface);
+      grid-template-columns:1fr 1fr;
+      gap:0;
       border:1px solid var(--line);
-      border-radius:26px;
-      padding:30px;
-      box-shadow:var(--shadow-soft);
+      border-radius:28px;
+      overflow:hidden;
+      background:rgba(255,255,255,.02);
     }
 
-    .panel p{
+    .statement-main,
+    .statement-side{
+      padding:34px;
+    }
+
+    .statement-main{
+      border-right:1px solid var(--line);
+    }
+
+    .statement-main p,
+    .statement-side p{
       margin:0;
       color:var(--muted);
       line-height:1.9;
       font-size:1rem;
     }
 
-    .mini-grid{
-      display:grid;
-      gap:14px;
-    }
-
-    .mini-card{
-      padding:20px 22px;
-      border-radius:20px;
-      background:var(--surface);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .mini-card strong{
-      display:block;
-      margin-bottom:8px;
+    .statement-quote{
+      margin:0 0 18px;
       color:var(--text);
+      font-size:1.45rem;
+      line-height:1.45;
+      letter-spacing:-.02em;
+      font-weight:600;
+    }
+
+    .flow{
+      border-top:1px solid var(--line);
+    }
+
+    .flow-row{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:24px;
+      padding:24px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .flow-row strong{
+      color:var(--text);
+      font-size:1rem;
+      font-weight:700;
+    }
+
+    .flow-row p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
       font-size:1rem;
     }
 
-    .mini-card span{
-      display:block;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:.95rem;
-    }
-
     .cta{
-      padding:8px 0 30px;
+      padding:8px 0 34px;
     }
 
     .cta-box{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:22px;
+      gap:24px;
       flex-wrap:wrap;
       padding:34px;
       border-radius:28px;
-      color:#fff;
       border:1px solid var(--line);
+      background:linear-gradient(135deg,#181b1f 0%, #111214 70%, #1b1f24 100%);
       box-shadow:var(--shadow);
-      background:linear-gradient(135deg,#1a1d21,#111315 65%, #1f2429 100%);
     }
 
     .cta-box h2{
       margin:0 0 10px;
       font-size:clamp(1.8rem,3vw,2.4rem);
-      line-height:1.1;
+      line-height:1.08;
       letter-spacing:-.03em;
     }
 
     .cta-box p{
       margin:0;
       max-width:58ch;
-      color:rgba(255,255,255,.74);
-      line-height:1.8;
+      color:var(--muted);
+      line-height:1.85;
     }
 
     .footer{
@@ -389,34 +418,48 @@
     .footer-box{
       display:flex;
       justify-content:space-between;
-      gap:16px;
+      gap:14px;
       flex-wrap:wrap;
-      padding:24px 4px 0;
+      padding-top:22px;
       border-top:1px solid var(--line);
       color:var(--muted);
       font-size:.92rem;
     }
 
-    @media (max-width:1100px){
-      .hero-box,
-      .about-layout{
+    @media (max-width:1020px){
+      .hero-inner,
+      .statement{
         grid-template-columns:1fr;
       }
 
-      .hero-box{
+      .statement-main{
+        border-right:none;
+        border-bottom:1px solid var(--line);
+      }
+
+      .hero-inner{
         min-height:auto;
+      }
+
+      .hero-side{
+        justify-content:flex-start;
       }
     }
 
-    @media (max-width:960px){
-      .header-box{
+    @media (max-width:900px){
+      .header-inner{
         grid-template-columns:1fr;
-        text-align:center;
+        padding:14px 0;
       }
 
       .logo-wrap,
       .header-cta{
         justify-self:center;
+      }
+
+      .flow-row{
+        grid-template-columns:1fr;
+        gap:10px;
       }
     }
 
@@ -425,17 +468,21 @@
         position:static;
       }
 
-      .hero-box{
-        padding:34px 22px;
+      .hero-inner{
+        padding:36px 22px;
+      }
+
+      .hero-shell{
         border-radius:24px;
       }
 
       h1{
-        max-width:13ch;
+        max-width:12ch;
       }
 
-      .cta-box,
-      .panel{
+      .statement-main,
+      .statement-side,
+      .cta-box{
         padding:22px;
       }
     }
@@ -443,7 +490,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="container header-box">
+    <div class="container header-inner">
       <a href="/" class="logo-wrap" aria-label="BDB ana sayfa">
         <img class="logo-image" src="/logo-bdb.png" alt="BDB logo">
       </a>
@@ -461,38 +508,48 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-box">
-        <div class="hero-content">
-          <div class="eyebrow">BDB Tedarik</div>
-          <h1>İhtiyacınıza uygun tedarik desteği sunuyoruz.</h1>
-          <p>
-            BDB, işletmelerin ihtiyaç duyduğu ürünlerde hızlı teklif, net iletişim
-            ve düzenli tedarik desteği sunar. Amacımız süreci gereksiz detaylarla
-            uzatmadan, pratik ve güven veren bir şekilde ilerletmektir.
-          </p>
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-inner">
+            <div class="hero-content">
+              <div class="eyebrow">BDB Tedarik</div>
+              <h1>İhtiyacınıza uygun tedarik desteği sunuyoruz.</h1>
+              <p class="hero-text">
+                BDB, işletmelerin ihtiyaç duyduğu ürünlerde hızlı teklif, net iletişim ve
+                düzenli tedarik desteği sunar. Süreci gereksiz kalabalık olmadan, sade ve
+                güven veren bir şekilde yürütmeyi hedefler.
+              </p>
 
-          <div class="actions">
-            <a class="button primary" href="/iletisim/">İletişime Geç</a>
-            <a class="button secondary" href="/urunler/">Ürünleri İncele</a>
-          </div>
-        </div>
+              <div class="hero-actions">
+                <a class="button primary" href="/iletisim/">İletişime Geç</a>
+                <a class="button secondary" href="/kurumsal/">Kurumsal Bilgi</a>
+              </div>
+            </div>
 
-        <div class="hero-side">
-          <div class="hero-card">
-            <h2>Net, sade ve düzenli bir çalışma yapısı</h2>
-            <p>
-              İhtiyaca uygun ürünler için teklif ve tedarik sürecini daha kolay,
-              daha anlaşılır ve daha düzenli hale getirmeye odaklanıyoruz.
-            </p>
-          </div>
+            <div class="hero-side">
+              <div class="hero-panel">
+                <div class="hero-panel-top">
+                  <small>Yaklaşım</small>
+                  <strong>Net, sakin ve düzenli bir çalışma yapısı</strong>
+                </div>
 
-          <div class="hero-card">
-            <h3>Çalışma yaklaşımımız</h3>
-            <div class="hero-tags">
-              <span>Hızlı teklif</span>
-              <span>Net iletişim</span>
-              <span>Düzenli tedarik</span>
-              <span>Pratik süreç</span>
+                <div class="hero-lines">
+                  <div class="hero-line">
+                    <b>Hızlı teklif</b>
+                    <span>Talepler mümkün olduğunca kısa sürede değerlendirilir ve süreç gereksiz şekilde uzatılmaz.</span>
+                  </div>
+
+                  <div class="hero-line">
+                    <b>Net iletişim</b>
+                    <span>İş akışı boyunca sade, açık ve anlaşılır bir iletişim tercih edilir.</span>
+                  </div>
+
+                  <div class="hero-line">
+                    <b>Düzenli tedarik</b>
+                    <span>Tek seferlik veya tekrar eden ihtiyaçlarda sürdürülebilir destek sunulur.</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -503,36 +560,54 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Hakkımızda</div>
-          <h2 class="section-title">Kısa, net ve güven veren bir yapı</h2>
+          <h2 class="section-title">Ana sayfada sadece gerekli olanı bırakmak daha doğru durur</h2>
           <p class="section-text">
-            Ana sayfada gereksiz detaylara girmeden, ne yaptığınızı ve nasıl bir hizmet sunduğunuzu
-            doğrudan anlatmak daha doğru bir izlenim bırakır.
+            Fazla kutu, fazla metin ve katalog hissi veren düzen yerine daha düz, daha sakin ve daha güven veren bir akış tercih edildi.
           </p>
         </div>
 
-        <div class="about-layout">
-          <div class="panel">
+        <div class="statement">
+          <div class="statement-main">
+            <p class="statement-quote">
+              BDB, işletmelerin ihtiyaç duyduğu ürünlerde sade ve güven veren bir tedarik desteği sunar.
+            </p>
             <p>
-              BDB, işletmelerin ihtiyaç duyduğu ürünlerde tedarik desteği sunan bir yapıdır.
-              Süreç boyunca teklif, ürün yönlendirmesi ve tedarik organizasyonu konularında
-              pratik destek sağlar. Amaç, ihtiyaç duyulan ürünlere daha hızlı, daha net ve
-              daha düzenli şekilde ulaşılmasına yardımcı olmaktır.
+              Teklif, ürün yönlendirmesi ve tedarik organizasyonu gibi konularda pratik destek sağlayarak,
+              sürecin daha düzenli ve daha anlaşılır ilerlemesine yardımcı olur.
             </p>
           </div>
 
-          <div class="mini-grid">
-            <div class="mini-card">
-              <strong>Hızlı teklif süreci</strong>
-              <span>Taleplerinize kısa sürede dönüş yapılarak süreç gereksiz şekilde uzatılmaz.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Net iletişim</strong>
-              <span>İş akışı boyunca sade ve anlaşılır bir iletişim tercih edilir.</span>
-            </div>
-            <div class="mini-card">
-              <strong>Düzenli destek</strong>
-              <span>Tek seferlik veya tekrar eden ihtiyaçlarda sürdürülebilir tedarik desteği sunulur.</span>
-            </div>
+          <div class="statement-side">
+            <p>
+              Bu ana sayfanın amacı her şeyi anlatmak değil, markanın ne yaptığını kısa ve düzgün biçimde
+              göstermektir. Ürün detayları ve iletişim bilgileri diğer sayfalarda daha net şekilde yer alır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Çalışma Yapısı</div>
+          <h2 class="section-title">Süreci sade tutan bir yaklaşım</h2>
+        </div>
+
+        <div class="flow">
+          <div class="flow-row">
+            <strong>Pratik ilerleme</strong>
+            <p>Talepler gereksiz karmaşa oluşturmadan değerlendirilir ve iş akışı mümkün olduğunca sade tutulur.</p>
+          </div>
+
+          <div class="flow-row">
+            <strong>Doğrudan iletişim</strong>
+            <p>İhtiyaçların daha hızlı netleşmesi için açık ve kısa iletişim ön planda tutulur.</p>
+          </div>
+
+          <div class="flow-row">
+            <strong>Düzenli destek</strong>
+            <p>Tekrar eden ihtiyaçlarda daha sürdürülebilir bir tedarik düzeni oluşturulmasına yardımcı olunur.</p>
           </div>
         </div>
       </div>
@@ -542,16 +617,15 @@
       <div class="container">
         <div class="cta-box">
           <div>
-            <h2>Ürün talebiniz için bizimle iletişime geçin</h2>
+            <h2>İhtiyacınız için bizimle iletişime geçin</h2>
             <p>
-              İhtiyacınız olan ürün veya ürün grubu için detayları paylaşın,
-              uygun tedarik sürecini birlikte değerlendirelim.
+              Ürün veya talep detaylarını paylaşın, size uygun tedarik sürecini daha net şekilde değerlendirelim.
             </p>
           </div>
 
-          <div class="actions">
+          <div class="hero-actions" style="margin-top:0;">
             <a class="button primary" href="/iletisim/">İletişim Sayfası</a>
-            <a class="button secondary" href="/kurumsal/">Kurumsal Bilgi</a>
+            <a class="button secondary" href="/urunler/">Ürünler</a>
           </div>
         </div>
       </div>
