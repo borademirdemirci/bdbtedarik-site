@@ -210,42 +210,53 @@
       padding:0 0 48px;
     }
 
-    .closing-line{
+    .cta-box{
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       justify-content:space-between;
       gap:24px;
       flex-wrap:wrap;
-      padding-top:8px;
-      border-top:1px solid var(--line);
+      padding:34px 30px;
+      border-radius:28px;
+      background:linear-gradient(135deg,var(--navy) 0%, #1f3153 100%);
+      box-shadow:var(--shadow-soft);
     }
 
-    .closing-line p{
+    .cta-box h2{
+      margin:0 0 10px;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-size:2rem;
+      line-height:1.05;
+      letter-spacing:-.03em;
+      text-transform:uppercase;
+      color:#fff;
+    }
+
+    .cta-box p{
       margin:0;
-      max-width:720px;
-      color:var(--muted);
-      line-height:1.9;
+      max-width:620px;
+      color:rgba(255,255,255,.78);
+      line-height:1.8;
     }
 
     .cta-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:52px;
+      min-height:54px;
       padding:0 22px;
       border-radius:14px;
-      border:1px solid var(--line-soft);
-      background:#fff;
-      color:var(--navy);
+      background:var(--green);
+      color:#173050;
       font-weight:800;
       text-transform:uppercase;
       white-space:nowrap;
+      border:none;
       transition:.2s ease;
     }
 
     .cta-btn:hover{
-      border-color:var(--green);
-      color:var(--text-strong);
+      transform:translateY(-1px);
     }
 
     .footer{
@@ -301,6 +312,10 @@
       h1{
         font-size:2.7rem;
         max-width:10ch;
+      }
+
+      .cta-box{
+        padding:28px 22px;
       }
 
       .logo img{
@@ -378,10 +393,13 @@
 
     <section class="closing">
       <div class="container">
-        <div class="closing-line">
-          <p>
-            İhtiyaç duyduğunuz ürün grubunu bizimle paylaşabilirsiniz. Talebinizin içeriğine göre uygun tedarik süreci değerlendirilerek dönüş sağlanır.
-          </p>
+        <div class="cta-box">
+          <div>
+            <h2>ÜRÜN TALEBİNİZ İÇİN BİZE ULAŞIN</h2>
+            <p>
+              İhtiyaç duyduğunuz ürün grubunu bizimle paylaşabilirsiniz. Talebinizin içeriğine göre uygun tedarik süreci değerlendirilerek dönüş sağlanır.
+            </p>
+          </div>
           <a href="/iletisim/" class="cta-btn">İLETİŞİME GEÇ</a>
         </div>
       </div>
