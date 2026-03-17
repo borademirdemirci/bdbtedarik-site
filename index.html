@@ -30,11 +30,11 @@
       --shadow:0 18px 40px rgba(27,44,74,.08);
       --shadow-soft:0 10px 25px rgba(27,44,74,.05);
       --max:1180px;
-      --radius:28px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:"Inter", Arial, sans-serif;
@@ -89,7 +89,8 @@
       font-family:"Montserrat", Arial, sans-serif;
       font-size:1.18rem;
       font-weight:800;
-      letter-spacing:.01em;
+      letter-spacing:.03em;
+      text-transform:uppercase;
       color:var(--muted);
       position:relative;
       transition:.2s ease;
@@ -124,14 +125,17 @@
       color:#fff;
       font-size:.96rem;
       font-weight:800;
+      text-transform:uppercase;
       box-shadow:var(--shadow-soft);
       transition:.2s ease;
     }
 
-    .top-btn:hover{transform:translateY(-1px)}
+    .top-btn:hover{
+      transform:translateY(-1px);
+    }
 
     .hero{
-      padding:36px 0 26px;
+      padding:36px 0 42px;
     }
 
     .hero-box{
@@ -175,12 +179,13 @@
       font-size:clamp(3.2rem,5.8vw,5.8rem);
       line-height:.94;
       letter-spacing:-.04em;
+      text-transform:uppercase;
       color:var(--text-strong);
     }
 
     .hero-sub{
       margin:20px 0 0;
-      max-width:35ch;
+      max-width:34ch;
       color:var(--muted);
       font-size:1.05rem;
       line-height:1.85;
@@ -203,10 +208,13 @@
       border-radius:14px;
       font-size:.96rem;
       font-weight:800;
+      text-transform:uppercase;
       transition:.2s ease;
     }
 
-    .btn:hover{transform:translateY(-1px)}
+    .btn:hover{
+      transform:translateY(-1px);
+    }
 
     .btn-primary{
       background:linear-gradient(135deg,var(--navy-soft),var(--navy));
@@ -241,6 +249,7 @@
       font-family:"Montserrat", Arial, sans-serif;
       font-size:.95rem;
       color:var(--text-strong);
+      text-transform:uppercase;
     }
 
     .point span{
@@ -251,43 +260,8 @@
 
     .hero-right{
       display:grid;
-      grid-template-rows:1.1fr 1fr 1fr 1fr;
+      grid-template-rows:repeat(3,1fr);
       background:var(--bg-soft);
-    }
-
-    .hero-panel{
-      padding:34px;
-      border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(248,251,255,.96));
-    }
-
-    .hero-panel-badge{
-      display:inline-flex;
-      align-items:center;
-      min-height:34px;
-      padding:0 14px;
-      border-radius:999px;
-      background:rgba(159,190,119,.16);
-      color:var(--green-deep);
-      font-size:.8rem;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .hero-panel h2{
-      margin:18px 0 12px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:2rem;
-      line-height:1.04;
-      letter-spacing:-.03em;
-      color:var(--text-strong);
-    }
-
-    .hero-panel p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.85;
     }
 
     .link-block{
@@ -295,7 +269,7 @@
       align-items:flex-end;
       justify-content:space-between;
       gap:20px;
-      padding:30px 34px;
+      padding:34px;
       border-bottom:1px solid var(--line);
       transition:.2s ease;
       background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(248,251,255,.95));
@@ -324,9 +298,10 @@
     .link-title{
       margin:0;
       font-family:"Montserrat", Arial, sans-serif;
-      font-size:1.65rem;
+      font-size:1.7rem;
       line-height:1.05;
       letter-spacing:-.03em;
+      text-transform:uppercase;
       color:var(--text-strong);
     }
 
@@ -342,84 +317,6 @@
       color:var(--green-deep);
       font-size:1.1rem;
       background:#fff;
-    }
-
-    .section{
-      padding:10px 0 52px;
-    }
-
-    .trust-box{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .trust-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .trust-card h3{
-      margin:0 0 10px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:1rem;
-      letter-spacing:-.02em;
-      color:var(--text-strong);
-    }
-
-    .trust-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:.95rem;
-    }
-
-    .cta{
-      padding:0 0 48px;
-    }
-
-    .cta-box{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-      flex-wrap:wrap;
-      padding:34px 30px;
-      border-radius:28px;
-      background:linear-gradient(135deg,var(--navy) 0%, #1f3153 100%);
-      box-shadow:var(--shadow);
-    }
-
-    .cta-box h2{
-      margin:0 0 10px;
-      font-family:"Montserrat", Arial, sans-serif;
-      font-size:2rem;
-      line-height:1.05;
-      letter-spacing:-.03em;
-      color:#fff;
-    }
-
-    .cta-box p{
-      margin:0;
-      max-width:620px;
-      color:rgba(255,255,255,.78);
-      line-height:1.8;
-    }
-
-    .cta-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:54px;
-      padding:0 22px;
-      border-radius:14px;
-      background:var(--green);
-      color:#173050;
-      font-weight:800;
-      white-space:nowrap;
     }
 
     .footer{
@@ -459,8 +356,7 @@
         justify-self:center;
       }
 
-      .hero-points,
-      .trust-box{
+      .hero-points{
         grid-template-columns:1fr;
       }
 
@@ -476,7 +372,6 @@
     @media (max-width:720px){
       .header{position:static}
       .hero-left{padding:38px 22px}
-      .hero-panel,
       .link-block{padding:24px 22px}
       h1{max-width:11ch}
     }
@@ -490,13 +385,13 @@
       </a>
 
       <nav class="nav" aria-label="Ana menü">
-        <a href="/" class="active">Ana Sayfa</a>
-        <a href="/urunler/">Ürünler</a>
-        <a href="/hakkimizda/">Hakkımızda</a>
-        <a href="/iletisim/">İletişim</a>
+        <a href="/" class="active">ANA SAYFA</a>
+        <a href="/urunler/">ÜRÜNLER</a>
+        <a href="/hakkimizda/">HAKKIMIZDA</a>
+        <a href="/iletisim/">İLETİŞİM</a>
       </nav>
 
-      <a href="/iletisim/" class="top-btn">Teklif Al</a>
+      <a href="/iletisim/" class="top-btn">TEKLİF AL</a>
     </div>
   </header>
 
@@ -507,47 +402,39 @@
           <div class="hero-grid">
             <div class="hero-left">
               <div>
-                <div class="eyebrow">BDB Tedarik</div>
+                <div class="eyebrow">BDB TEDARİK</div>
                 <h1>GÜVENİLİR VE DÜZENLİ TEDARİK DESTEĞİ</h1>
                 <p class="hero-sub">
                   BDB, işletmeler için net iletişim, hızlı teklif ve profesyonel tedarik süreci sunar.
                 </p>
 
                 <div class="hero-actions">
-                  <a href="/urunler/" class="btn btn-primary">Ürünler</a>
-                  <a href="/iletisim/" class="btn btn-secondary">İletişim</a>
+                  <a href="/urunler/" class="btn btn-primary">ÜRÜNLER</a>
+                  <a href="/iletisim/" class="btn btn-secondary">İLETİŞİM</a>
                 </div>
               </div>
 
               <div class="hero-points">
                 <div class="point">
-                  <strong>Hızlı Teklif</strong>
+                  <strong>HIZLI TEKLİF</strong>
                   <span>Kısa sürede geri dönüş ve net süreç.</span>
                 </div>
                 <div class="point">
-                  <strong>Profesyonel İletişim</strong>
+                  <strong>PROFESYONEL İLETİŞİM</strong>
                   <span>Düzenli ve anlaşılır iş akışı.</span>
                 </div>
                 <div class="point">
-                  <strong>Kurumsal Yaklaşım</strong>
+                  <strong>KURUMSAL YAKLAŞIM</strong>
                   <span>İşletmelere uygun sade ve güven veren yapı.</span>
                 </div>
               </div>
             </div>
 
             <div class="hero-right">
-              <div class="hero-panel">
-                <span class="hero-panel-badge">Kurumsal Çözüm</span>
-                <h2>İŞLETMELER İÇİN PROFESYONEL TEDARİK YÖNETİMİ</h2>
-                <p>
-                  Sade yapı, güçlü görünüm ve doğrudan iletişim odaklı kurumsal sunum.
-                </p>
-              </div>
-
               <a href="/urunler/" class="link-block">
                 <div>
                   <span class="link-label">01</span>
-                  <h2 class="link-title">Ürünler</h2>
+                  <h2 class="link-title">ÜRÜNLER</h2>
                 </div>
                 <div class="link-arrow">→</div>
               </a>
@@ -555,7 +442,7 @@
               <a href="/hakkimizda/" class="link-block">
                 <div>
                   <span class="link-label">02</span>
-                  <h2 class="link-title">Hakkımızda</h2>
+                  <h2 class="link-title">HAKKIMIZDA</h2>
                 </div>
                 <div class="link-arrow">→</div>
               </a>
@@ -563,43 +450,12 @@
               <a href="/iletisim/" class="link-block">
                 <div>
                   <span class="link-label">03</span>
-                  <h2 class="link-title">İletişim</h2>
+                  <h2 class="link-title">İLETİŞİM</h2>
                 </div>
                 <div class="link-arrow">→</div>
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="trust-box">
-          <div class="trust-card">
-            <h3>NET SUNUM</h3>
-            <p>Ziyaretçi ilk bakışta firmanın ne sunduğunu doğrudan görür.</p>
-          </div>
-          <div class="trust-card">
-            <h3>KURUMSAL GÖRÜNÜM</h3>
-            <p>Beyaz zemin, güçlü tipografi ve dengeli renk yapısı güven hissini destekler.</p>
-          </div>
-          <div class="trust-card">
-            <h3>DOĞRUDAN İLETİŞİM</h3>
-            <p>Gereksiz kalabalık olmadan teklif ve iletişim odaklı akış sunulur.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <h2>TEDARİK SÜRECİNİZ İÇİN İLETİŞİME GEÇİN</h2>
-            <p>İhtiyacınıza uygun çözüm ve teklif süreci için bizimle iletişime geçin.</p>
-          </div>
-          <a href="/iletisim/" class="cta-btn">Teklif Talep Et</a>
         </div>
       </div>
     </section>
@@ -608,7 +464,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 BDB</span>
-      <span>Tedarik Desteği</span>
+      <span>TEDARİK DESTEĞİ</span>
     </div>
   </footer>
 </body>
